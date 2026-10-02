@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TokenPilot — Brand</title>
+  <meta name="description" content="TokenPilot brand guidelines: logo, colour, typography and materials." />
+  <meta name="theme-color" content="#05050b" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <style>
+    .bk { padding: 150px 0 100px; }
+    .bk h1 { font-size: clamp(48px, 8vw, 96px); letter-spacing: -0.055em; margin: 18px 0 20px; }
+    .bk-lead { color: var(--text-2); font-size: 19px; max-width: 620px; }
+    .bk-sec { margin-top: 110px; }
+    .bk-sec > h2 { font-size: clamp(30px, 4vw, 44px); margin: 14px 0 12px; }
+    .bk-sec > p { color: var(--text-2); max-width: 640px; margin-bottom: 32px; }
+    .bk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .bk-tile { padding: 28px; min-height: 260px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
+    .bk-tile > div:first-child { flex: 1; display: grid; place-items: center; }
+    .bk-tile .mono { font-size: 11px; color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; }
+    .bk-hero { grid-column: span 3; min-height: 420px; background: radial-gradient(50% 70% at 50% 50%, rgba(110, 91, 255, 0.3), transparent 70%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); }
+    .bk-hero .brand { font-size: clamp(42px, 7vw, 84px); gap: 22px; }
+    .bk-hero .brand img { width: clamp(56px, 8vw, 96px); height: auto; filter: drop-shadow(0 16px 40px rgba(110, 91, 255, 0.6)); }
+    .bk-light { background: #f4f3ff; }
+    .bk-light::before, .bk-light::after { display: none; }
+    .bk-light .mono { color: #6b6890; }
+    .bk-light .brand { color: #0b0b14; }
+    .bk-light .brand b { color: #5a45ff; }
+    .bk-mark img { width: 120px; height: 120px; }
+    .bk-app { width: 120px; height: 120px; border-radius: 30px; display: grid; place-items: center;
+      background: radial-gradient(circle at 30% 20%, #2a2160, #0b0b14 70%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.25), inset 0 0 0 1px rgba(255,255,255,.08), 0 20px 50px -16px rgba(110,91,255,.7); }
+    .bk-app img { width: 76px; height: 76px; }
+    .sw { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .sw div { border-radius: 22px; padding: 18px; min-height: 180px; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.1), inset 0 1px 0 rgba(255,255,255,.2); }
+    .sw b { font-family: var(--font-display); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+    .sw span { font-family: var(--font-mono); font-size: 12px; opacity: .75; }
+    .sw .dark { color: #0b0b14; }
+    .type { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .type .glass { padding: 30px; }
+    .type .big { font-size: 84px; line-height: 1; margin: 18px 0; color: var(--text); }
+    .type p { color: var(--text-2); font-size: 14.5px; }
+    .mat { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .mat .glass { padding: 30px; }
+    .mat h3 { font-size: 20px; margin-bottom: 10px; }
+    .mat p { color: var(--text-2); font-size: 15px; }
+    .mat-demo { position: relative; height: 220px; border-radius: 22px; overflow: hidden; margin-top: 22px;
+      background: radial-gradient(circle at 25% 35%, #6e5bff 0 60px, transparent 61px), radial-gradient(circle at 75% 70%, #3be8c8 0 46px, transparent 47px), repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 1px, transparent 1px 28px), #0b0b14; }
+    .mat-demo .glass { position: absolute; inset: 40px 50px; display: grid; place-items: center; font-family: var(--font-display); font-weight: 600; font-size: 22px; letter-spacing: -0.02em; }
+    .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .rules .glass { padding: 28px; }
+    .rules ul { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; color: var(--text-2); }
+    .rules li { display: flex; gap: 10px; }
+    .rules .icon { width: 18px; height: 18px; flex: none; margin-top: 3px; }
+    @media (max-width: 900px) {
+      .bk-grid, .type, .mat, .rules { grid-template-columns: 1fr; }
+      .bk-hero { grid-column: auto; min-height: 280px; }
+      .sw { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner glass lg" data-lg-radius="999" data-lg-blur="12">
+      <a href="index.html" class="brand"><img src="assets/img/logo-mark.svg" alt="" width="30" height="30" /><span>Token<b>Pilot</b></span></a>
+      <nav class="nav__links" aria-label="Brand sections">
+        <a href="#logo">Logo</a><a href="#colour">Colour</a><a href="#type">Type</a><a href="#material">Material</a>
+      </nav>
+      <div class="nav__cta"><a href="app.html" class="btn btn--primary btn--sm">Launch app</a></div>
+    </div>
+  </header>
+
+  <main class="container bk">
+    <span class="eyebrow" data-reveal>Brand guidelines · v1.0</span>
+    <h1 data-reveal style="--d:1">Navigate by<br /><span class="grad">the north star.</span></h1>
+    <p class="bk-lead" data-reveal style="--d:2">TokenPilot's identity is built on one idea: a guiding star with a token in orbit around it. Calm, precise and quietly luminous — the confidence of a pilot who knows the route.</p>
+
+    <section class="bk-sec" id="logo">
+      <span class="eyebrow" data-reveal>Logo</span>
+      <h2 data-reveal>The Polaris mark</h2>
+      <p data-reveal>A four-point star — the pilot's fixed point — encircled by a tilted orbit that passes behind and in front of it. The orbit is the token; the star is the strategy that keeps it on course. The gradient runs from Indigo to Signal: from idea to growth.</p>
+      <div class="bk-grid">
+        <div class="bk-tile bk-hero glass" data-reveal>
+          <div><a class="brand"><img src="assets/img/logo-mark.svg" alt="TokenPilot logo" /><span>Token<b>Pilot</b></span></a></div>
+          <span class="mono">Primary lockup · on Void</span>
+        </div>
+        <div class="bk-tile glass bk-mark" data-reveal><div><img src="assets/img/logo-mark.svg" alt="" /></div><span class="mono">Mark</span></div>
+        <div class="bk-tile glass" data-reveal style="--d:1"><div><div class="bk-app"><img src="assets/img/logo-mark.svg" alt="" /></div></div><span class="mono">App icon</span></div>
+        <div class="bk-tile glass bk-light" data-reveal style="--d:2"><div><span class="brand" style="font-size:30px"><img src="assets/img/logo-mark.svg" alt="" style="width:40px;height:40px" /><span>Token<b>Pilot</b></span></span></div><span class="mono">Lockup · on Light</span></div>
+      </div>
+    </section>
+
+    <section class="bk-sec" id="colour">
+      <span class="eyebrow" data-reveal>Colour</span>
+      <h2 data-reveal>Deep space, one signal</h2>
+      <p data-reveal>Interfaces live in Void and Ink. Indigo is the brand voice; Signal is reserved for live states and positive movement — use it sparingly so it always means something.</p>
+      <div class="sw" data-reveal>
+        <div style="background:#05050b"><b>Void</b><span>#05050B</span></div>
+        <div style="background:#12121e"><b>Graphite</b><span>#12121E</span></div>
+        <div style="background:linear-gradient(135deg,#7a68ff,#5a45ff)"><b>Indigo</b><span>#6E5BFF</span></div>
+        <div style="background:#8b7bff"><b>Ultraviolet</b><span>#8B7BFF</span></div>
+        <div class="dark" style="background:#c9c2ff"><b>Lavender</b><span>#C9C2FF</span></div>
+        <div class="dark" style="background:#3be8c8"><b>Signal</b><span>#3BE8C8</span></div>
+        <div class="dark" style="background:#ffb547"><b>Ember</b><span>#FFB547 · alerts</span></div>
+        <div class="dark" style="background:#f4f3ff"><b>Starlight</b><span>#F4F3FF · text</span></div>
+      </div>
+    </section>
+
+    <section class="bk-sec" id="type">
+      <span class="eyebrow" data-reveal>Typography</span>
+      <h2 data-reveal>Tight, technical, human</h2>
+      <p data-reveal>Inter Tight with tight tracking for headlines, Inter for reading, JetBrains Mono for data, labels and anything the system says.</p>
+      <div class="type">
+        <div class="glass" data-reveal><span class="eyebrow">Display</span><div class="big" style="font-family:var(--font-display);font-weight:600;letter-spacing:-.05em">Aa</div><p>Inter Tight · 600 · −4.5% tracking</p></div>
+        <div class="glass" data-reveal style="--d:1"><span class="eyebrow">Body</span><div class="big" style="font-weight:400;letter-spacing:-.02em">Aa</div><p>Inter · 400–600 · 16px / 1.6</p></div>
+        <div class="glass" data-reveal style="--d:2"><span class="eyebrow">Data</span><div class="big mono" style="font-weight:400">Aa</div><p>JetBrains Mono · labels, metrics, system voice</p></div>
+      </div>
+    </section>
+
+    <section class="bk-sec" id="material">
+      <span class="eyebrow" data-reveal>Material</span>
+      <h2 data-reveal>Liquid glass</h2>
+      <p data-reveal>Surfaces are panes of glass floating over deep space: a refractive bezel, a soft specular highlight along the top edge and a gradient hairline. Glass is for structure; content always stays crisp.</p>
+      <div class="mat">
+        <div class="glass" data-reveal>
+          <h3>Refraction</h3>
+          <p>In supporting browsers, the bezel of each pane bends what's behind it, like a real lens. Everywhere else it degrades to frosted glass.</p>
+          <div class="mat-demo"><div class="glass lg" data-lg-radius="24" data-lg-blur="3" data-lg-strength="60">Liquid glass</div></div>
+        </div>
+        <div class="glass" data-reveal style="--d:1">
+          <h3>Motion</h3>
+          <p>Motion is slow and purposeful: elements rise and come into focus as they enter, the command center tilts up to meet you, and agents breathe with a quiet pulse. Everything respects reduced-motion settings.</p>
+          <div class="mat-demo" style="background:radial-gradient(circle at 50% 50%, rgba(110,91,255,.45), transparent 60%), #0b0b14; display:grid; place-items:center">
+            <img src="assets/img/logo-mark.svg" alt="" width="80" height="80" style="animation: breathe 2.4s ease-in-out infinite; filter: drop-shadow(0 0 30px rgba(110,91,255,.8))" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bk-sec">
+      <span class="eyebrow" data-reveal>Voice</span>
+      <h2 data-reveal>Say less. Prove more.</h2>
+      <div class="rules">
+        <div class="glass" data-reveal><b>We are</b>
+          <ul><li><svg class="icon" style="color:var(--signal)"><use href="#i-check"/></svg>Calm, precise and confident</li><li><svg class="icon" style="color:var(--signal)"><use href="#i-check"/></svg>Specific — numbers, steps, next actions</li><li><svg class="icon" style="color:var(--signal)"><use href="#i-check"/></svg>On the founder's side</li></ul>
+        </div>
+        <div class="glass" data-reveal style="--d:1"><b>We never</b>
+          <ul><li><svg class="icon" style="color:var(--rose)"><use href="#i-x"/></svg>Promise returns or predict prices</li><li><svg class="icon" style="color:var(--rose)"><use href="#i-x"/></svg>Use rockets, moons or ALL CAPS hype</li><li><svg class="icon" style="color:var(--rose)"><use href="#i-x"/></svg>Stretch, recolour or outline the mark</li></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__legal" style="margin-top:0;border-top:0;padding-top:0">
+      <span>© 2026 TokenPilot. All rights reserved.</span>
+      <a href="index.html">← Back to home</a>
+    </div>
+  </footer>
+
+  <style>@keyframes breathe { 50% { transform: scale(1.06); } }</style>
+  <script src="assets/js/liquid-glass.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

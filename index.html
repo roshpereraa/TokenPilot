@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TokenPilot — Your token's AI launch team</title>
+  <meta name="description" content="TokenPilot builds a dedicated AI operating system around your token: six specialized agents for brand, growth, social, launch, market intelligence and strategy — from idea to launch to growth on Robinhood Chain." />
+  <meta name="theme-color" content="#05050b" />
+  <meta property="og:title" content="TokenPilot — Your token's AI launch team" />
+  <meta property="og:description" content="Six specialized AI agents. One living command center. From idea → narrative → community → launch → growth." />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-brand" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9l4-6Z M2 9h20 M9 3l3 18 3-18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-growth" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-social" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z M8 10h8 M8 13h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-launch" viewBox="0 0 24 24"><path d="M14 4c3.5 0 6 2.5 6 6-1.5 3-4.5 6-8 8l-6-6c2-3.5 5-6.5 8-8Z M6 12l-3 1 2 2 M12 18l-1 3-2-2 M8.5 15.5 5 19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="15" cy="9" r="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 12l6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="16" cy="14.5" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2Q13 11 22 12Q13 13 12 22Q11 13 2 12Q11 11 12 2Z" fill="currentColor"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner glass lg" data-lg-radius="999" data-lg-blur="12">
+      <a href="#top" class="brand" aria-label="TokenPilot home">
+        <img src="assets/img/logo-mark.svg" alt="" width="30" height="30" />
+        <span>Token<b>Pilot</b></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#agents">Agents</a>
+        <a href="#command">Command center</a>
+        <a href="#pricing">Pricing</a>
+        <a href="brand.html">Brand</a>
+      </nav>
+      <div class="nav__cta">
+        <a href="app.html" class="btn btn--ghost btn--sm nav__signin">Sign in</a>
+        <a href="app.html" class="btn btn--primary btn--sm">Start your launch</a>
+        <button class="nav__burger" aria-label="Open menu" aria-expanded="false" id="burger"><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="nav__sheet glass" id="sheet" hidden>
+      <a href="#how">How it works</a>
+      <a href="#agents">Agents</a>
+      <a href="#command">Command center</a>
+      <a href="#pricing">Pricing</a>
+      <a href="brand.html">Brand</a>
+      <a href="app.html" class="btn btn--primary">Start your launch</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <canvas class="hero__orb" id="orb" aria-hidden="true"></canvas>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <a href="#how" class="pill glass" data-reveal>
+          <span class="dot">NEW</span> Built for launches on Robinhood Chain
+        </a>
+        <h1 class="hero__title" data-reveal style="--d:1">
+          Your token's<br /><span class="grad">AI launch team.</span>
+        </h1>
+        <p class="hero__sub" data-reveal style="--d:2">
+          TokenPilot studies your project end-to-end — narrative, brand, competitors, market, community and audience
+          psychology — then deploys six specialized agents into a living command center that takes you from
+          idea to launch to growth.
+        </p>
+        <div class="hero__ctas" data-reveal style="--d:3">
+          <a href="app.html" class="btn btn--primary btn--lg lg" data-lg-radius="999">Start your launch <svg><use href="#i-arrow"/></svg></a>
+          <a href="#how" class="btn btn--glass btn--lg lg" data-lg-radius="999">See how it works</a>
+        </div>
+        <div class="hero__meta mono" data-reveal style="--d:4">
+          <span><i class="live-dot"></i> 6 agents online</span>
+          <span class="sep"></span>
+          <span>Idea → Narrative → Community → Launch → Growth</span>
+        </div>
+      </div>
+
+      <!-- Command center preview -->
+      <div class="container">
+        <div class="stage" id="stage">
+          <div class="preview glass" id="preview">
+            <div class="preview__bar">
+              <div class="preview__dots"><i></i><i></i><i></i></div>
+              <div class="preview__url mono">app.tokenpilot.ai / nova / command</div>
+              <div class="preview__status mono"><i class="live-dot"></i> Live</div>
+            </div>
+            <div class="preview__body">
+              <aside class="pv-side">
+                <div class="pv-token">
+                  <div class="pv-token__logo">N</div>
+                  <div><strong>Nova</strong><span class="mono">$NOVA · T-14d</span></div>
+                </div>
+                <div class="pv-side__label mono">Agents</div>
+                <ul class="pv-agents">
+                  <li class="is-active"><svg class="icon"><use href="#i-compass"/></svg>Strategy<em class="busy"></em></li>
+                  <li><svg class="icon"><use href="#i-brand"/></svg>Brand<em></em></li>
+                  <li><svg class="icon"><use href="#i-growth"/></svg>Growth<em class="busy"></em></li>
+                  <li><svg class="icon"><use href="#i-social"/></svg>Social<em class="busy"></em></li>
+                  <li><svg class="icon"><use href="#i-launch"/></svg>Launch<em></em></li>
+                  <li><svg class="icon"><use href="#i-radar"/></svg>Intel<em class="busy"></em></li>
+                </ul>
+              </aside>
+              <div class="pv-main">
+                <div class="pv-head">
+                  <div>
+                    <span class="mono pv-kicker">Good morning, founder</span>
+                    <h3>Narrative momentum is building.</h3>
+                  </div>
+                  <div class="pv-seg mono"><span>1D</span><span class="on">1W</span><span>1M</span><span>All</span></div>
+                </div>
+                <div class="pv-grid">
+                  <div class="pv-card glass glass--sm pv-chart">
+                    <div class="pv-card__head">
+                      <span>Community reach</span>
+                      <strong class="mono">48,210 <em class="up">+18.4%</em></strong>
+                    </div>
+                    <svg viewBox="0 0 400 140" preserveAspectRatio="none" class="pv-area">
+                      <defs>
+                        <linearGradient id="pvfill" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#6e5bff" stop-opacity=".55"/>
+                          <stop offset="1" stop-color="#6e5bff" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <g stroke="rgba(255,255,255,.06)"><line x1="0" y1="35" x2="400" y2="35"/><line x1="0" y1="70" x2="400" y2="70"/><line x1="0" y1="105" x2="400" y2="105"/></g>
+                      <path d="M0 118 C40 112 60 100 90 104 S140 80 170 70 S220 22 250 34 S300 76 330 62 S370 40 400 30 L400 140 L0 140Z" fill="url(#pvfill)"/>
+                      <path class="pv-line" d="M0 118 C40 112 60 100 90 104 S140 80 170 70 S220 22 250 34 S300 76 330 62 S370 40 400 30" fill="none" stroke="#9b8cff" stroke-width="2.2"/>
+                      <line x1="250" y1="34" x2="250" y2="140" stroke="rgba(255,255,255,.35)" stroke-dasharray="3 4"/>
+                      <circle cx="250" cy="34" r="5" fill="#0a0a14" stroke="#c9c2ff" stroke-width="2"/>
+                    </svg>
+                    <div class="pv-tip glass glass--sm mono">Thread #4 went viral · 12.8k</div>
+                  </div>
+                  <div class="pv-card glass glass--sm pv-score">
+                    <span>Narrative score</span>
+                    <div class="ring" style="--p:86"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32"/><circle cx="40" cy="40" r="32" class="ring__v"/></svg><strong class="mono">86</strong></div>
+                    <em class="mono up">+6 this week</em>
+                  </div>
+                  <div class="pv-card glass glass--sm pv-feed">
+                    <span>Agent feed</span>
+                    <ul>
+                      <li><i class="c-social"></i><p><b>Social</b> drafted 9 posts for the "first light" campaign</p></li>
+                      <li><i class="c-intel"></i><p><b>Intel</b> flagged a rising AI-agent narrative (+41%)</p></li>
+                      <li><i class="c-growth"></i><p><b>Growth</b> proposed a referral quest for Discord</p></li>
+                    </ul>
+                  </div>
+                  <div class="pv-card glass glass--sm pv-prio">
+                    <span>Today's priorities</span>
+                    <ol class="mono">
+                      <li class="done">Lock launch narrative v3</li>
+                      <li>Ship teaser thread · 18:00 UTC</li>
+                      <li>Brief 4 creators on embargo</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== STATEMENT ============================== -->
+    <section class="statement container" id="statement">
+      <p class="statement__text" data-words>
+        Most tokens don't fail on code. They fail on story, timing and community. TokenPilot gives every founder the
+        strategist, brand agency, growth team, social desk, market analyst and launch operator they could never afford —
+        working together, around the clock, on one token: yours.
+      </p>
+    </section>
+
+    <!-- ============================== HOW ============================== -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <span class="eyebrow">How it works</span>
+          <h2>From brief to <span class="grad">operating system</span><br />in minutes.</h2>
+          <p>Enter what you know. TokenPilot fills in what you don't — and keeps learning after launch.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step glass" data-reveal>
+            <span class="step__n mono">01</span>
+            <h3>Brief your project</h3>
+            <p>Token concept, name, website, X account, community links, visual assets, roadmap, audience and goals.</p>
+            <div class="step__form">
+              <div class="field"><span class="mono">Token</span><b>Nova</b><em class="mono">$NOVA</em></div>
+              <div class="field"><span class="mono">Concept</span><b>On-chain AI copilots for retail traders</b></div>
+              <div class="field"><span class="mono">X</span><b>@novaonchain</b></div>
+            </div>
+          </article>
+          <article class="step glass" data-reveal style="--d:1">
+            <span class="step__n mono">02</span>
+            <h3>Deep analysis</h3>
+            <p>Every dimension of your project is mapped, scored and benchmarked against the market around it.</p>
+            <div class="chips">
+              <span class="tag">Narrative</span><span class="tag">Brand</span><span class="tag">Competitors</span>
+              <span class="tag">Market landscape</span><span class="tag">Social presence</span><span class="tag">Community</span>
+              <span class="tag tag--violet">Audience psychology</span><span class="tag tag--signal">Positioning</span>
+            </div>
+          </article>
+          <article class="step glass glass--tint" data-reveal style="--d:2">
+            <span class="step__n mono">03</span>
+            <h3>Your AI operating system</h3>
+            <p>A dedicated team of agents is spun up around your token — and it never hands you a static PDF.</p>
+            <div class="os">
+              <div class="os__core"><img src="assets/img/logo-mark.svg" alt="" /></div>
+              <span style="--a:0deg"><svg class="icon"><use href="#i-brand"/></svg></span>
+              <span style="--a:60deg"><svg class="icon"><use href="#i-growth"/></svg></span>
+              <span style="--a:120deg"><svg class="icon"><use href="#i-social"/></svg></span>
+              <span style="--a:180deg"><svg class="icon"><use href="#i-launch"/></svg></span>
+              <span style="--a:240deg"><svg class="icon"><use href="#i-radar"/></svg></span>
+              <span style="--a:300deg"><svg class="icon"><use href="#i-compass"/></svg></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== AGENTS ============================== -->
+    <section class="section" id="agents">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <span class="eyebrow">The team</span>
+          <h2>Six specialists.<br /><span class="grad">One shared brain.</span></h2>
+          <p>Each agent owns a discipline. All of them share the same memory of your project, so every output stays on-narrative.</p>
+        </div>
+
+        <div class="agents">
+          <article class="agent glass" data-reveal data-glow>
+            <div class="agent__icon" style="--c:#b8aeff"><svg class="icon"><use href="#i-brand"/></svg></div>
+            <h3>Brand Agent</h3>
+            <p>Develops the visual identity, narrative, positioning and messaging that make your token instantly recognisable.</p>
+            <ul class="mono"><li>Positioning</li><li>Narrative pillars</li><li>Voice &amp; taglines</li><li>Website copy</li></ul>
+          </article>
+          <article class="agent glass" data-reveal data-glow style="--d:1">
+            <div class="agent__icon" style="--c:#3be8c8"><svg class="icon"><use href="#i-growth"/></svg></div>
+            <h3>Growth Agent</h3>
+            <p>Designs community and acquisition strategies — funnels, quests, referral loops and partner plays.</p>
+            <ul class="mono"><li>Community funnels</li><li>Campaigns</li><li>Acquisition channels</li><li>KPI targets</li></ul>
+          </article>
+          <article class="agent glass" data-reveal data-glow style="--d:2">
+            <div class="agent__icon" style="--c:#7aa8ff"><svg class="icon"><use href="#i-social"/></svg></div>
+            <h3>Social Agent</h3>
+            <p>Plans and drafts X content, replies, threads, campaigns and the viral moments that compound attention.</p>
+            <ul class="mono"><li>Content calendar</li><li>Threads &amp; posts</li><li>Reply playbook</li><li>Viral moments</li></ul>
+          </article>
+          <article class="agent glass" data-reveal data-glow>
+            <div class="agent__icon" style="--c:#ffb547"><svg class="icon"><use href="#i-launch"/></svg></div>
+            <h3>Launch Agent</h3>
+            <p>Builds your pre-launch, launch-day and post-launch playbook down to the hour, with owners and checklists.</p>
+            <ul class="mono"><li>T-30 → T+30 plan</li><li>Launch-day runbook</li><li>Announcements</li><li>Creator briefs</li></ul>
+          </article>
+          <article class="agent glass" data-reveal data-glow style="--d:1">
+            <div class="agent__icon" style="--c:#ff6b8b"><svg class="icon"><use href="#i-radar"/></svg></div>
+            <h3>Market Intelligence</h3>
+            <p>Monitors competitors, trends, narratives and sentiment — and surfaces emerging opportunities before the crowd.</p>
+            <ul class="mono"><li>Competitor map</li><li>Narrative trends</li><li>Sentiment</li><li>Opportunity alerts</li></ul>
+          </article>
+          <article class="agent glass glass--tint" data-reveal data-glow style="--d:2">
+            <div class="agent__icon" style="--c:#c9c2ff"><svg class="icon"><use href="#i-compass"/></svg></div>
+            <h3>Strategy Agent</h3>
+            <p>Continuously synthesises every signal from the team into clear, ranked decisions and your daily priorities.</p>
+            <ul class="mono"><li>Daily priorities</li><li>Decision memos</li><li>Risk radar</li><li>Weekly review</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== LIFECYCLE (sticky) ============================== -->
+    <section class="section lifecycle" id="lifecycle">
+      <div class="container lifecycle__grid">
+        <div class="lifecycle__sticky">
+          <div class="section__head section__head--left" data-reveal>
+            <span class="eyebrow">The full lifecycle</span>
+            <h2>One system,<br />every <span class="grad">stage.</span></h2>
+          </div>
+          <div class="lc-visual glass" id="lcVisual">
+            <div class="lc-rail">
+              <div class="lc-rail__fill" id="lcFill"></div>
+              <span data-i="0">Idea</span><span data-i="1">Narrative</span><span data-i="2">Community</span><span data-i="3">Launch</span><span data-i="4">Growth</span>
+            </div>
+            <div class="lc-panels">
+              <div class="lc-panel is-on" data-i="0">
+                <span class="mono lc-k">Strategy · Intel</span>
+                <h4>Is this idea launch-worthy?</h4>
+                <div class="bars">
+                  <div><span>Narrative fit</span><i style="--w:82%"></i><b class="mono">82</b></div>
+                  <div><span>Market timing</span><i style="--w:74%"></i><b class="mono">74</b></div>
+                  <div><span>Differentiation</span><i style="--w:68%"></i><b class="mono">68</b></div>
+                </div>
+              </div>
+              <div class="lc-panel" data-i="1">
+                <span class="mono lc-k">Brand</span>
+                <h4>"The first copilot that trades with you, not for you."</h4>
+                <div class="chips"><span class="tag tag--violet">Empowerment</span><span class="tag">Transparency</span><span class="tag">Speed</span></div>
+              </div>
+              <div class="lc-panel" data-i="2">
+                <span class="mono lc-k">Growth · Social</span>
+                <h4>Founding Pilots quest</h4>
+                <ul class="mono lc-list"><li><svg class="icon"><use href="#i-check"/></svg>Invite 3 → Early role</li><li><svg class="icon"><use href="#i-check"/></svg>Daily signal thread</li><li><svg class="icon"><use href="#i-check"/></svg>Weekly AMA on X Spaces</li></ul>
+              </div>
+              <div class="lc-panel" data-i="3">
+                <span class="mono lc-k">Launch</span>
+                <h4>Launch day runbook</h4>
+                <ul class="mono lc-list"><li><b>T-60m</b> Final teaser + pinned post</li><li><b>T-0</b> Announcement + creator wave</li><li><b>T+2h</b> AMA &amp; reply sprint</li></ul>
+              </div>
+              <div class="lc-panel" data-i="4">
+                <span class="mono lc-k">Strategy · Intel</span>
+                <h4>Adapting to what's working</h4>
+                <p class="lc-p">Engagement on educational threads is 2.3× memes. Shifting next week's mix to 60/40 and doubling Spaces cadence.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="lc-steps">
+          <li class="lc-step" data-step="0">
+            <span class="mono">01 — Idea</span>
+            <h3>Pressure-test the concept.</h3>
+            <p>Before a single post goes out, Strategy and Intel score your concept against live narratives, comparable launches and audience demand — and tell you what to sharpen.</p>
+          </li>
+          <li class="lc-step" data-step="1">
+            <span class="mono">02 — Narrative</span>
+            <h3>Find the story people repeat.</h3>
+            <p>The Brand Agent turns your concept into positioning, narrative pillars, voice and taglines — then test-drives variants so you lead with the one that lands.</p>
+          </li>
+          <li class="lc-step" data-step="2">
+            <span class="mono">03 — Community</span>
+            <h3>Build belief before launch.</h3>
+            <p>Growth and Social design the funnel, the quests and the daily content that turn followers into a community that shows up on day one.</p>
+          </li>
+          <li class="lc-step" data-step="3">
+            <span class="mono">04 — Launch</span>
+            <h3>Run launch like an operator.</h3>
+            <p>An hour-by-hour runbook, announcement drafts, creator briefs and contingency plans — so launch day is execution, not improvisation.</p>
+          </li>
+          <li class="lc-step" data-step="4">
+            <span class="mono">05 — Growth</span>
+            <h3>Learn, adapt, compound.</h3>
+            <p>The system reads your performance and the market every day, updating recommendations instead of leaving you with yesterday's plan.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================== COMMAND CENTER (bento) ============================== -->
+    <section class="section" id="command">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <span class="eyebrow">The command center</span>
+          <h2>Ask. Generate. Simulate.<br /><span class="grad">Adapt in real time.</span></h2>
+          <p>A living workspace where your agents brief you, take requests and ship work — not a dashboard you check once.</p>
+        </div>
+
+        <div class="bento">
+          <article class="bx bx--chat glass" data-reveal>
+            <div class="bx__head"><h3>Ask your team anything</h3><p>Every answer draws on the full context of your project.</p></div>
+            <div class="chat">
+              <div class="msg msg--me">What should we post if a competitor launches tomorrow?</div>
+              <div class="msg msg--ai">
+                <span class="msg__who mono"><svg class="icon"><use href="#i-compass"/></svg> Strategy · with Social &amp; Intel</span>
+                Don't react — reframe. Ship the "built different" thread at 14:00 UTC contrasting our trader-first design, then pin the
+                live demo. I've drafted it plus 6 reply templates.
+                <div class="msg__actions"><span class="tag tag--violet">Open draft</span><span class="tag">Schedule</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="bx bx--sim glass" data-reveal style="--d:1">
+            <div class="bx__head"><h3>Simulate launch scenarios</h3><p>Model reach and community growth before you commit.</p></div>
+            <svg viewBox="0 0 300 120" class="sim" preserveAspectRatio="none">
+              <path d="M0 110 C60 100 100 90 150 70 S240 30 300 14" fill="none" stroke="#3be8c8" stroke-width="2" class="draw"/>
+              <path d="M0 110 C60 104 100 98 150 86 S240 62 300 52" fill="none" stroke="#8b7bff" stroke-width="2" class="draw" style="--dd:.2s"/>
+              <path d="M0 110 C60 107 100 104 150 100 S240 92 300 88" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="4 5"/>
+            </svg>
+            <div class="legend mono"><span><i style="background:#3be8c8"></i>Bull</span><span><i style="background:#8b7bff"></i>Base</span><span><i style="background:rgba(255,255,255,.4)"></i>Bear</span></div>
+          </article>
+
+          <article class="bx bx--test glass" data-reveal>
+            <div class="bx__head"><h3>Test narratives</h3><p>Score messaging variants against your audience.</p></div>
+            <div class="variants">
+              <div><span>"Trade with you, not for you"</span><i style="--w:88%" class="win"></i><b class="mono">88</b></div>
+              <div><span>"AI alpha for everyone"</span><i style="--w:64%"></i><b class="mono">64</b></div>
+              <div><span>"Your on-chain edge"</span><i style="--w:57%"></i><b class="mono">57</b></div>
+            </div>
+          </article>
+
+          <article class="bx bx--gen glass glass--tint" data-reveal style="--d:1">
+            <div class="bx__head"><h3>Generate campaigns</h3><p>Full campaigns with posts, visuals briefs and timing.</p></div>
+            <div class="gen">
+              <div class="gen__row"><span class="mono">Campaign</span><b>First Light · 7 days</b></div>
+              <div class="gen__row"><span class="mono">Assets</span><b>14 posts · 2 threads · 1 Space</b></div>
+              <div class="gen__row"><span class="mono">Goal</span><b>+5k Founding Pilots</b></div>
+              <div class="gen__bar"><i></i></div>
+            </div>
+          </article>
+
+          <article class="bx bx--pulse glass" data-reveal style="--d:2">
+            <div class="bx__head"><h3>It learns as you grow</h3><p>Performance and market data reshape your plan every day.</p></div>
+            <div class="pulse">
+              <div><b class="mono" data-count="2.3" data-dec="1" data-suffix="×">0</b><span>edu vs meme engagement</span></div>
+              <div><b class="mono" data-count="41" data-suffix="%">0</b><span>rising sector narrative</span></div>
+              <div><b class="mono" data-count="12" data-suffix="">0</b><span>recommendations updated</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== OUTPUTS MARQUEE ============================== -->
+    <section class="outputs" aria-label="What TokenPilot generates">
+      <div class="container section__head" data-reveal>
+        <span class="eyebrow">What it ships</span>
+        <h2>Everything a launch needs. <span class="grad">On demand.</span></h2>
+      </div>
+      <div class="marquee">
+        <div class="marquee__track">
+          <span>Positioning</span><span>Website copy</span><span>Social calendars</span><span>Community campaigns</span><span>Launch announcements</span><span>Influencer briefs</span><span>Outreach templates</span><span>Daily priorities</span><span>Narrative tests</span><span>Competitor maps</span><span>Reply playbooks</span><span>Launch runbooks</span>
+          <span aria-hidden="true">Positioning</span><span aria-hidden="true">Website copy</span><span aria-hidden="true">Social calendars</span><span aria-hidden="true">Community campaigns</span><span aria-hidden="true">Launch announcements</span><span aria-hidden="true">Influencer briefs</span><span aria-hidden="true">Outreach templates</span><span aria-hidden="true">Daily priorities</span><span aria-hidden="true">Narrative tests</span><span aria-hidden="true">Competitor maps</span><span aria-hidden="true">Reply playbooks</span><span aria-hidden="true">Launch runbooks</span>
+        </div>
+      </div>
+      <div class="marquee marquee--rev">
+        <div class="marquee__track">
+          <span>X threads</span><span>Discord quests</span><span>Telegram scripts</span><span>AMA prep</span><span>Crisis responses</span><span>Roadmap narratives</span><span>Audience personas</span><span>Taglines</span><span>Weekly reviews</span><span>Partnership pitches</span>
+          <span aria-hidden="true">X threads</span><span aria-hidden="true">Discord quests</span><span aria-hidden="true">Telegram scripts</span><span aria-hidden="true">AMA prep</span><span aria-hidden="true">Crisis responses</span><span aria-hidden="true">Roadmap narratives</span><span aria-hidden="true">Audience personas</span><span aria-hidden="true">Taglines</span><span aria-hidden="true">Weekly reviews</span><span aria-hidden="true">Partnership pitches</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== COMPARE ============================== -->
+    <section class="section" id="compare">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <span class="eyebrow">Not another PDF</span>
+          <h2>A launch plan goes stale.<br /><span class="grad">A launch team doesn't.</span></h2>
+        </div>
+        <div class="compare">
+          <div class="cmp glass" data-reveal>
+            <h3>Static launch plan</h3>
+            <ul>
+              <li><svg class="icon"><use href="#i-x"/></svg>Written once, outdated in a week</li>
+              <li><svg class="icon"><use href="#i-x"/></svg>Generic templates, not your narrative</li>
+              <li><svg class="icon"><use href="#i-x"/></svg>No view of competitors or sentiment</li>
+              <li><svg class="icon"><use href="#i-x"/></svg>You still have to write everything</li>
+              <li><svg class="icon"><use href="#i-x"/></svg>Silent when the market moves</li>
+            </ul>
+          </div>
+          <div class="cmp cmp--win glass glass--tint" data-reveal style="--d:1">
+            <h3><img src="assets/img/logo-mark.svg" alt="" width="22" height="22" /> TokenPilot</h3>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>Updates daily from performance and market</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Built around your project's own context</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Always-on intel on narratives and rivals</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Drafts the posts, briefs and announcements</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Tells you what to do today, and why</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PRICING ============================== -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <span class="eyebrow">Pricing</span>
+          <h2>Cheaper than one agency call.</h2>
+          <p>Start free with a full project analysis. Upgrade when your team goes live.</p>
+        </div>
+        <div class="pricing">
+          <article class="plan glass" data-reveal>
+            <h3>Analysis</h3>
+            <div class="plan__price"><b>Free</b></div>
+            <p>See what your AI team sees.</p>
+            <ul><li><svg class="icon"><use href="#i-check"/></svg>Full project deep analysis</li><li><svg class="icon"><use href="#i-check"/></svg>Positioning &amp; narrative snapshot</li><li><svg class="icon"><use href="#i-check"/></svg>Launch readiness score</li></ul>
+            <a href="app.html" class="btn btn--glass">Analyze my token</a>
+          </article>
+          <article class="plan plan--hot glass glass--tint" data-reveal style="--d:1">
+            <span class="plan__badge mono">Most popular</span>
+            <h3>Launch</h3>
+            <div class="plan__price"><b>$249</b><span>/ month</span></div>
+            <p>All six agents for one token.</p>
+            <ul><li><svg class="icon"><use href="#i-check"/></svg>Everything in Analysis</li><li><svg class="icon"><use href="#i-check"/></svg>Live command center &amp; chat</li><li><svg class="icon"><use href="#i-check"/></svg>Unlimited campaigns &amp; drafts</li><li><svg class="icon"><use href="#i-check"/></svg>Launch simulator &amp; runbook</li></ul>
+            <a href="app.html" class="btn btn--primary">Start your launch</a>
+          </article>
+          <article class="plan glass" data-reveal style="--d:2">
+            <h3>Studio</h3>
+            <div class="plan__price"><b>Custom</b></div>
+            <p>For launchpads and multi-token teams.</p>
+            <ul><li><svg class="icon"><use href="#i-check"/></svg>Multiple tokens &amp; workspaces</li><li><svg class="icon"><use href="#i-check"/></svg>Team seats &amp; approvals</li><li><svg class="icon"><use href="#i-check"/></svg>Custom agents &amp; integrations</li></ul>
+            <a href="mailto:hello@tokenpilot.ai" class="btn btn--glass">Talk to us</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FAQ ============================== -->
+    <section class="section section--tight" id="faq">
+      <div class="container faq-wrap">
+        <div class="section__head section__head--left" data-reveal>
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions,<br />answered.</h2>
+        </div>
+        <div class="faq" data-reveal style="--d:1">
+          <details class="glass glass--sm" open>
+            <summary>What do I need to get started?</summary>
+            <p>Just your token concept and name. Website, X account, community links, visuals, roadmap, audience and goals all make the analysis sharper — but TokenPilot will tell you what's missing and help you build it.</p>
+          </details>
+          <details class="glass glass--sm">
+            <summary>Does TokenPilot deploy or trade my token?</summary>
+            <p>No. TokenPilot is a strategy, brand and growth system. It never holds keys, deploys contracts or touches funds. Nothing it produces is financial advice.</p>
+          </details>
+          <details class="glass glass--sm">
+            <summary>Why Robinhood Chain?</summary>
+            <p>TokenPilot is tuned for founders launching on Robinhood Chain — its audience, ecosystem and launch dynamics. The playbooks adapt to wherever your community lives.</p>
+          </details>
+          <details class="glass glass--sm">
+            <summary>Will the content sound generic?</summary>
+            <p>Every agent shares one memory of your project — your narrative, voice and audience — and you can edit, approve and train it as you go. The more you use it, the more it sounds like you.</p>
+          </details>
+          <details class="glass glass--sm">
+            <summary>What happens after launch?</summary>
+            <p>The work continues. Log performance and the system adapts: new priorities each day, updated campaigns, and early warnings when narratives or sentiment shift.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA ============================== -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta__card glass" data-reveal>
+          <div class="cta__orb" aria-hidden="true"></div>
+          <img src="assets/img/logo-mark.svg" alt="" class="cta__mark" width="64" height="64" />
+          <h2>Take your token from<br /><span class="grad">idea to orbit.</span></h2>
+          <p>Brief your project in five minutes. Meet your launch team in ten.</p>
+          <a href="app.html" class="btn btn--primary btn--lg lg" data-lg-radius="999">Start your launch <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#top" class="brand"><img src="assets/img/logo-mark.svg" alt="" width="30" height="30" /><span>Token<b>Pilot</b></span></a>
+        <p>The AI launch team for token founders.</p>
+      </div>
+      <div class="footer__cols">
+        <div><h4>Product</h4><a href="#agents">Agents</a><a href="#command">Command center</a><a href="#pricing">Pricing</a><a href="app.html">Launch app</a></div>
+        <div><h4>Company</h4><a href="brand.html">Brand</a><a href="mailto:hello@tokenpilot.ai">Contact</a></div>
+      </div>
+    </div>
+    <div class="container footer__legal">
+      <span>© 2026 TokenPilot. All rights reserved.</span>
+      <span>TokenPilot is an independent product and is not affiliated with or endorsed by Robinhood. Nothing on this site is financial advice.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/liquid-glass.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

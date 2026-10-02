@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 48" fill="none">
+  <defs>
+    <linearGradient id="tp-star" x1="24" y1="4" x2="24" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#A99CFF"/>
+    </linearGradient>
+    <linearGradient id="tp-orbit" x1="2" y1="36" x2="46" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6E5BFF"/><stop offset=".6" stop-color="#9B8CFF"/><stop offset="1" stop-color="#3BE8C8"/>
+    </linearGradient>
+    <mask id="tp-behind" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+      <rect width="48" height="48" fill="#fff"/>
+      <path d="M24 4Q26 22 40 24Q26 26 24 44Q22 26 8 24Q22 22 24 4Z" fill="#000" stroke="#000" stroke-width="5" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <g transform="rotate(-30 24 24)"><ellipse cx="24" cy="24" rx="22" ry="7.5" stroke="url(#tp-orbit)" stroke-width="2.4" mask="url(#tp-behind)"/></g>
+  <path d="M24 4Q26 22 40 24Q26 26 24 44Q22 26 8 24Q22 22 24 4Z" fill="url(#tp-star)"/>
+  <g transform="rotate(-30 24 24)"><path d="M2 24A22 7.5 0 0 0 46 24" stroke="url(#tp-orbit)" stroke-width="2.4" stroke-linecap="round"/></g>
+  <text x="60" y="33" font-family="'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="-1.1" fill="#F4F3FF">Token<tspan fill="#B8AEFF">Pilot</tspan></text>
+</svg>

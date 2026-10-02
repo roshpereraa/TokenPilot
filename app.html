@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TokenPilot — Command Center</title>
+  <meta name="description" content="Brief your token, get a deep analysis and meet your AI launch team." />
+  <meta name="theme-color" content="#05050b" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body class="app">
+  <div class="ambient" aria-hidden="true"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-brand" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9l4-6Z M2 9h20 M9 3l3 18 3-18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-growth" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-social" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z M8 10h8 M8 13h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-launch" viewBox="0 0 24 24"><path d="M14 4c3.5 0 6 2.5 6 6-1.5 3-4.5 6-8 8l-6-6c2-3.5 5-6.5 8-8Z M6 12l-3 1 2 2 M12 18l-1 3-2-2 M8.5 15.5 5 19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="15" cy="9" r="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-intel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 12l6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="16" cy="14.5" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-strategy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4v-9Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sim" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16M7 15l4-4 3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 7.5Q12.5 10 15 10.5 12.5 11 12 13.5 11.5 11 9 10.5 11.5 10 12 7.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2.5-6.5L4 12Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2Q13 11 22 12Q13 13 12 22Q11 13 2 12Q11 11 12 2Z" fill="currentColor"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <!-- ================================ INTAKE ================================ -->
+  <section class="view view--intake" id="viewIntake" hidden>
+    <header class="topbar">
+      <a href="index.html" class="brand"><img src="assets/img/logo-mark.svg" alt="" width="30" height="30" /><span>Token<b>Pilot</b></span></a>
+      <button class="btn btn--glass btn--sm" id="loadSample" type="button"><svg class="icon"><use href="#i-spark"/></svg> Load sample project</button>
+    </header>
+
+    <div class="intake">
+      <aside class="intake__aside">
+        <span class="eyebrow">Project brief</span>
+        <h1>Brief your<br /><span class="grad">launch team.</span></h1>
+        <p>The more you share, the sharper your agents get. Only the name and concept are required.</p>
+        <ol class="stepper" id="stepper">
+          <li class="is-on"><i>1</i><div><b>Concept</b><span>Name, ticker, idea</span></div></li>
+          <li><i>2</i><div><b>Presence</b><span>Website, X, community</span></div></li>
+          <li><i>3</i><div><b>Brand</b><span>Visual assets &amp; vibe</span></div></li>
+          <li><i>4</i><div><b>Strategy</b><span>Audience, roadmap, goals</span></div></li>
+        </ol>
+      </aside>
+
+      <form class="intake__card glass" id="brief" novalidate autocomplete="off">
+        <div class="intake__progress"><i id="progressBar"></i></div>
+
+        <!-- Step 1 -->
+        <fieldset class="fstep is-on" data-step="0">
+          <legend>The concept</legend>
+          <div class="row row--2">
+            <label class="input"><span>Token name *</span><input name="name" required maxlength="40" placeholder="e.g. Nova" /></label>
+            <label class="input"><span>Ticker</span><input name="ticker" maxlength="8" placeholder="NOVA" class="mono" /></label>
+          </div>
+          <label class="input"><span>One-liner</span><input name="oneLiner" maxlength="140" placeholder="On-chain AI copilots that trade with you, not for you" /></label>
+          <label class="input"><span>Token concept *</span><textarea name="concept" required rows="4" maxlength="1200" placeholder="What is it, why does it exist, and what makes it different?"></textarea></label>
+          <div class="input"><span>Category</span>
+            <div class="seg" data-name="category">
+              <button type="button" data-v="ai" class="on">AI &amp; Agents</button>
+              <button type="button" data-v="meme">Meme &amp; Culture</button>
+              <button type="button" data-v="defi">DeFi</button>
+              <button type="button" data-v="rwa">Real-World Assets</button>
+              <button type="button" data-v="gaming">Gaming &amp; Social</button>
+              <button type="button" data-v="infra">Infrastructure</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset class="fstep" data-step="1">
+          <legend>Presence</legend>
+          <label class="input"><span>Website</span><input name="website" type="url" placeholder="https://" /></label>
+          <div class="row row--2">
+            <label class="input"><span>X account</span><input name="x" placeholder="@handle" /></label>
+            <label class="input"><span>X followers (approx.)</span><input name="followers" type="number" min="0" placeholder="0" class="mono" /></label>
+          </div>
+          <div class="row row--2">
+            <label class="input"><span>Telegram</span><input name="telegram" placeholder="t.me/…" /></label>
+            <label class="input"><span>Discord</span><input name="discord" placeholder="discord.gg/…" /></label>
+          </div>
+          <label class="input"><span>Community size (members across channels)</span><input name="communitySize" type="number" min="0" placeholder="0" class="mono" /></label>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset class="fstep" data-step="2">
+          <legend>Brand &amp; visual assets</legend>
+          <div class="row row--logo">
+            <label class="drop" id="drop">
+              <input type="file" accept="image/*" id="logoInput" hidden />
+              <div class="drop__preview" id="logoPreview"><svg class="icon"><use href="#i-upload"/></svg></div>
+              <div><b>Upload logo</b><span>PNG, SVG or JPG · up to 1MB</span></div>
+            </label>
+            <div class="input"><span>Brand colours</span>
+              <div class="swatches" id="swatches">
+                <label><input type="color" value="#6e5bff" data-color /></label>
+                <label><input type="color" value="#3be8c8" data-color /></label>
+                <label><input type="color" value="#0b0b14" data-color /></label>
+              </div>
+            </div>
+          </div>
+          <div class="input"><span>Brand vibe</span>
+            <div class="seg seg--wrap" data-name="vibe">
+              <button type="button" data-v="bold" class="on">Bold</button>
+              <button type="button" data-v="premium">Premium</button>
+              <button type="button" data-v="playful">Playful</button>
+              <button type="button" data-v="technical">Technical</button>
+              <button type="button" data-v="cultural">Cultural</button>
+              <button type="button" data-v="mysterious">Mysterious</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Step 4 -->
+        <fieldset class="fstep" data-step="3">
+          <legend>Strategy</legend>
+          <label class="input"><span>Target audience</span><textarea name="audience" rows="3" maxlength="800" placeholder="Who is this for? What do they care about, fear, and want?"></textarea></label>
+          <label class="input"><span>Roadmap</span><textarea name="roadmap" rows="3" maxlength="1200" placeholder="Key milestones — one per line"></textarea></label>
+          <div class="input"><span>Goals</span>
+            <div class="seg seg--wrap seg--multi" data-name="goals">
+              <button type="button" data-v="community" class="on">Founding community</button>
+              <button type="button" data-v="narrative">Own a narrative</button>
+              <button type="button" data-v="launch" class="on">Strong launch day</button>
+              <button type="button" data-v="holders">Holder growth</button>
+              <button type="button" data-v="creators">Creator reach</button>
+              <button type="button" data-v="partners">Partnerships</button>
+              <button type="button" data-v="brand">Long-term brand</button>
+            </div>
+          </div>
+          <label class="input input--short"><span>Target launch date</span><input name="launchDate" type="date" class="mono" /></label>
+        </fieldset>
+
+        <div class="intake__nav">
+          <button type="button" class="btn btn--ghost" id="prevStep"><svg class="icon"><use href="#i-back"/></svg> Back</button>
+          <span class="intake__err" id="formErr" role="alert"></span>
+          <button type="button" class="btn btn--primary" id="nextStep">Continue <svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================================ ANALYSIS ================================ -->
+  <section class="view view--analysis" id="viewAnalysis" hidden>
+    <div class="analysis">
+      <div class="scan">
+        <svg viewBox="0 0 200 200" class="scan__svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="scanG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6e5bff"/><stop offset="1" stop-color="#3be8c8"/></linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="92" class="scan__track"/>
+          <circle cx="100" cy="100" r="92" class="scan__val" id="scanVal"/>
+          <circle cx="100" cy="100" r="70" class="scan__dash"/>
+        </svg>
+        <div class="scan__core">
+          <img src="assets/img/logo-mark.svg" alt="" width="56" height="56" />
+          <strong class="mono" id="scanPct">0%</strong>
+        </div>
+      </div>
+      <h2 id="scanTitle">Analysing <span class="grad" id="scanName">your project</span></h2>
+      <p class="analysis__sub" id="scanSub">Mapping narrative, brand, market and audience…</p>
+      <ul class="dims glass" id="scanDims"></ul>
+      <div class="agents-boot" id="agentsBoot"></div>
+    </div>
+  </section>
+
+  <!-- ================================ COMMAND CENTER ================================ -->
+  <section class="view view--command" id="viewCommand" hidden>
+    <aside class="side" id="side">
+      <a href="index.html" class="brand side__brand"><img src="assets/img/logo-mark.svg" alt="" width="28" height="28" /><span>Token<b>Pilot</b></span></a>
+      <div class="token-card glass glass--sm" id="tokenCard"></div>
+      <nav class="side__nav" id="sideNav" aria-label="Command center"></nav>
+      <div class="side__foot">
+        <div class="ai-status" id="aiStatus"></div>
+      </div>
+    </aside>
+
+    <main class="main" id="main">
+      <header class="mainbar">
+        <button class="btn btn--glass btn--sm mainbar__menu" id="menuBtn" aria-label="Open navigation"><svg class="icon"><use href="#i-menu"/></svg></button>
+        <div class="mainbar__title" id="mainTitle"></div>
+        <div class="mainbar__right">
+          <div class="countdown mono" id="countdown"></div>
+          <button class="btn btn--primary btn--sm" id="chatToggle"><svg class="icon"><use href="#i-chat"/></svg> <span>Ask your team</span></button>
+        </div>
+      </header>
+      <div class="content" id="content"></div>
+    </main>
+
+    <aside class="chat glass" id="chat" aria-label="Ask your team">
+      <header class="chat__head">
+        <div><b>Ask your team</b><span id="chatMode" class="mono"></span></div>
+        <button class="btn btn--ghost btn--sm" id="chatClose" aria-label="Close chat"><svg class="icon"><use href="#i-x"/></svg></button>
+      </header>
+      <div class="chat__log" id="chatLog"></div>
+      <div class="chat__sugg" id="chatSugg"></div>
+      <form class="chat__form" id="chatForm">
+        <select id="chatAgent" class="mono" aria-label="Agent">
+          <option value="auto">Auto-route</option>
+          <option value="strategy">Strategy</option>
+          <option value="brand">Brand</option>
+          <option value="growth">Growth</option>
+          <option value="social">Social</option>
+          <option value="launch">Launch</option>
+          <option value="intel">Intel</option>
+        </select>
+        <div class="chat__input">
+          <textarea id="chatInput" rows="1" placeholder="Ask anything about your launch…"></textarea>
+          <button class="btn btn--primary btn--sm chat__send" aria-label="Send"><svg class="icon"><use href="#i-send"/></svg></button>
+        </div>
+      </form>
+    </aside>
+  </section>
+
+  <div class="toast glass" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/liquid-glass.js"></script>
+  <script src="assets/js/engine.js"></script>
+  <script src="assets/js/ai.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
