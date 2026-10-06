@@ -1,6 +1,6 @@
 # TokenPilot
 
-**The AI launch team for token founders on Robinhood Chain.**
+**The AI launch team for token founders on Solana.**
 
 A founder briefs their project (concept, name, website, X, community links, visual assets, roadmap, audience, goals). TokenPilot runs a deep analysis and spins up a dedicated AI operating system around the token: six agents (Strategy, Brand, Growth, Social, Launch, Market Intelligence) working in a live command center.
 
@@ -43,4 +43,4 @@ python3 -m http.server 8000
 
 Deploy anywhere static: Vercel, Netlify, GitHub Pages, Cloudflare Pages.
 
-> Pricing and sample metrics on the marketing site are placeholders. TokenPilot is not affiliated with Robinhood. Nothing it produces is financial advice.
+> Pricing and sample metrics on the marketing site are placeholders. TokenPilot is not affiliated with the Solana Foundation. Nothing it produces is financial advice.

@@ -170,12 +170,12 @@
     fillForm({
       name: "Nova", ticker: "NOVA",
       oneLiner: "On-chain AI copilots that trade with you, not for you",
-      concept: "Nova gives everyday traders on Robinhood Chain a personal AI copilot that explains markets, flags risks and suggests moves in plain English — the trader always stays in control. Holders vote on which copilot skills ship next, and every copilot action is verifiable on-chain.",
+      concept: "Nova gives everyday traders on Solana a personal AI copilot that explains markets, flags risks and suggests moves in plain English — the trader always stays in control. Holders vote on which copilot skills ship next, and every copilot action is verifiable on-chain.",
       category: "ai", website: "https://nova.example", x: "@novaonchain", followers: 4200,
       telegram: "t.me/novaonchain", discord: "discord.gg/nova", communitySize: 1800,
       vibe: "premium", colors: ["#6e5bff", "#3be8c8", "#0b0b14"],
       audience: "Retail traders aged 22-40 who are curious about crypto but overwhelmed by noise. They want to feel smart and in control, fear getting rugged, and trust products that show their work.",
-      roadmap: "Q1: Copilot beta for 1,000 Founding Pilots\nQ2: Skill marketplace with holder voting\nQ3: Copilot for tokenized stocks on Robinhood Chain\nQ4: Open agent SDK",
+      roadmap: "Q1: Copilot beta for 1,000 Founding Pilots\nQ2: Skill marketplace with holder voting\nQ3: Copilot support for every major Solana DEX\nQ4: Open agent SDK",
       goals: ["community", "narrative", "launch", "creators"],
       launchDate: isoIn(14)
     });
@@ -200,7 +200,7 @@
     val.style.strokeDasharray = C; val.style.strokeDashoffset = C;
     var subs = [
       "Reading the narrative and concept…", "Auditing brand assets and identity…", "Mapping the competitive landscape…",
-      "Reading market timing on Robinhood Chain…", "Benchmarking social presence…", "Sizing community and channels…",
+      "Reading market timing on Solana…", "Benchmarking social presence…", "Sizing community and channels…",
       "Modelling audience psychology…", "Synthesising positioning…"
     ];
     var per = reduce ? 60 : 520;
