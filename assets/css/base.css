@@ -350,3 +350,14 @@ p { margin: 0; }
 
 /* Liquid-glass refraction filters live here (injected by JS) */
 .lg-defs { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+
+/* X (Twitter) links */
+.xlink { width: 36px; height: 36px; border-radius: 50%; display: inline-grid; place-items: center; color: var(--text-2); flex: none;
+  background: rgba(255, 255, 255, 0.04); box-shadow: inset 0 0 0 1px var(--line-2); transition: color .25s, background .25s; }
+.xlink:hover { color: var(--text); background: rgba(255, 255, 255, 0.09); }
+.xlink .icon { width: 15px; height: 15px; }
+.xfollow { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; height: 36px; padding: 0 14px; border-radius: 999px; font-size: 13.5px; color: var(--text-2);
+  background: rgba(255, 255, 255, 0.04); box-shadow: inset 0 0 0 1px var(--line-2); transition: color .25s, background .25s; }
+.xfollow:hover { color: var(--text); background: rgba(255, 255, 255, 0.09); }
+.xfollow .icon { width: 14px; height: 14px; }
+.xfollow--side { margin-top: 10px; width: 100%; justify-content: center; }
