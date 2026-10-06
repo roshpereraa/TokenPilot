@@ -1,6 +1,6 @@
 # PilotPad
 
-**The AI launch team for token founders on Solana.**
+**The AI launch team for token founders on Robinhood Chain.**
 
 A founder briefs their project (concept, name, website, X, community links, visual assets, roadmap, audience, goals). PilotPad runs a deep analysis and spins up a dedicated AI operating system around the token: six agents (Strategy, Brand, Growth, Social, Launch, Market Intelligence) working in a live command center.
 
@@ -27,7 +27,7 @@ Out of the box, everything runs on the built-in engine (`assets/js/engine.js`), 
 
 ## Contract address
 
-The CA pill next to the X link in the top nav reads from `assets/js/config.js`. Set `ca` to the token's Solana address and push: the pill switches from "Coming soon" to the shortened address, and clicking it copies the full address. Invalid addresses are ignored.
+The CA pill next to the X link in the top nav reads from `assets/js/config.js`. Set `ca` to the token's Robinhood Chain contract address (`0x…`, 42 characters) and push: the pill switches from "Coming soon" to the shortened address, and clicking it copies the full address. Invalid addresses are ignored.
 
 ## Free trial & pricing
 
@@ -59,4 +59,4 @@ python3 -m http.server 8000
 
 Deploy anywhere static: Vercel, Netlify, GitHub Pages, Cloudflare Pages.
 
-> Sample metrics on the marketing site are illustrative. PilotPad is not affiliated with the Solana Foundation. Nothing it produces is financial advice.
+> Sample metrics on the marketing site are illustrative. PilotPad is not affiliated with Robinhood. Nothing it produces is financial advice.

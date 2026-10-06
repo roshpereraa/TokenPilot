@@ -56,13 +56,13 @@
       memes: ["the agent that never sleeps", "touch grass, the bot's got it", "AI summer"]
     },
     meme: {
-      label: "Meme & Culture", noun: "culture coin", timing: 88,
+      label: "Meme & Culture", noun: "culture coin", timing: 76,
       benefit: ["turns an inside joke into a movement", "gives its community a flag to rally behind", "makes holding feel like belonging"],
       diff: ["is built around a character people actually want to share", "rewards creators, not just early holders", "runs on daily rituals, not one-off hype"],
       comps: [
         { name: "Animal-mascot meme coins", threat: "High", win: "Own a sharper, more specific joke and a richer lore." },
         { name: "Celebrity & personality tokens", threat: "Medium", win: "Make the community the celebrity — UGC over endorsements." },
-        { name: "Ecosystem mascot tokens", threat: "Medium", win: "Become an unofficial voice of Solana culture early." }
+        { name: "Ecosystem mascot tokens", threat: "Medium", win: "Become the unofficial voice of Robinhood Chain culture early." }
       ],
       trends: ["Lore-driven memes", "Creator-reward mechanics", "Chain-native mascots", "Community-run raids"],
       words: ["vibe", "lore", "frens", "ritual", "send"],
@@ -82,9 +82,9 @@
       memes: ["DeFi your mum could use", "APY with receipts", "no PhD required"]
     },
     rwa: {
-      label: "Real-World Assets", noun: "tokenized-asset network", timing: 80,
+      label: "Real-World Assets", noun: "tokenized-asset network", timing: 90,
       benefit: ["brings real-world markets on-chain for everyone", "makes traditional assets programmable and global", "bridges brokerage-grade assets with on-chain freedom"],
-      diff: ["is built for Solana's fast, low-fee, retail-heavy markets", "treats compliance and transparency as features", "makes ownership composable across DeFi"],
+      diff: ["is native to Robinhood Chain's retail-first audience", "treats compliance and transparency as features", "makes ownership composable across DeFi"],
       comps: [
         { name: "Tokenized-treasury protocols", threat: "High", win: "Focus on access and experience for retail, not institutions." },
         { name: "Tokenized-equity platforms", threat: "Medium", win: "Differentiate on composability and community." },
@@ -109,7 +109,7 @@
     },
     infra: {
       label: "Infrastructure", noun: "infrastructure token", timing: 64,
-      benefit: ["makes building on Solana faster and safer", "powers the apps everyone else uses", "turns developer experience into a moat"],
+      benefit: ["makes building on Robinhood Chain faster and safer", "powers the apps everyone else uses", "turns developer experience into a moat"],
       diff: ["is obsessed with developer experience", "proves reliability with public metrics", "aligns token value with network usage"],
       comps: [
         { name: "Multi-chain infra providers", threat: "High", win: "Be the best native option, with chain-specific features." },
@@ -183,7 +183,7 @@
       var first = n.audience.split(/[.\n;]/)[0].trim();
       if (first.length > 4 && first.length < 90) return first.charAt(0).toLowerCase() + first.slice(1);
     }
-    return { ai: "retail traders who want an edge without the noise", meme: "crypto-native culture lovers who want to belong to something", defi: "first-time DeFi users who want control without complexity", rwa: "everyday investors who want 24/7 access to real markets", gaming: "players who want to own what they help create", infra: "builders shipping on Solana" }[n.cat];
+    return { ai: "retail traders who want an edge without the noise", meme: "crypto-native culture lovers who want to belong to something", defi: "first-time DeFi users who want control without complexity", rwa: "everyday investors who want 24/7 access to real markets", gaming: "players who want to own what they help create", infra: "builders shipping on Robinhood Chain" }[n.cat];
   }
 
   /* ---------- Analysis ---------- */
@@ -249,7 +249,7 @@
     var tagA = cap(w[1]) + " that works for you.";
     var taglines = shuffle(r, [
       tagA,
-      "The " + w[0] + " layer of Solana.",
+      "The " + w[0] + " layer of Robinhood Chain.",
       "Built different. Built on-chain.",
       cap(n.ticker.toLowerCase()) + " — " + pick(r, n.C.memes) + ".",
       "From " + w[2] + " to everyone.",
@@ -268,7 +268,7 @@
       taglines: taglines,
       website: {
         headline: pick(r, [tagA, "The " + w[0] + " your " + (n.cat === "infra" ? "stack" : "portfolio") + " was missing.", n.name + ": " + benefit.replace(/^\w/, function (c) { return c.toUpperCase(); }) + "."]),
-        subhead: (n.oneLiner || n.concept || benefit).replace(/[.!?]?$/, ".") + " Built natively on Solana.",
+        subhead: (n.oneLiner || n.concept || benefit).replace(/[.!?]?$/, ".") + " Built natively on Robinhood Chain.",
         features: [
           { t: cap(w[0]) + ", not noise", d: "Everything " + n.name + " does is designed to make " + aud.split(" who ")[0] + " better off — and to prove it." },
           { t: "Transparent by default", d: "Open roadmap, public metrics and a community that sees decisions before they ship." },
@@ -289,7 +289,7 @@
     var base = Math.max(n.followers, 300);
     var cBase = Math.max(n.community, 150);
     var funnel = [
-      { stage: "Discover", tactic: "Narrative threads, creator collabs and ecosystem raids across Solana", kpi: "Impressions / week" },
+      { stage: "Discover", tactic: "Narrative threads, creator collabs and ecosystem raids across Robinhood Chain", kpi: "Impressions / week" },
       { stage: "Join", tactic: (n.discord ? "Discord" : n.telegram ? "Telegram" : "A community hub") + " with a 60-second onboarding quest and clear roles", kpi: "Join rate from X" },
       { stage: "Engage", tactic: "Daily rituals: alpha drops, polls, " + pick(r, ["meme contests", "build-in-public updates", "AMA clips", "lore chapters"]), kpi: "Daily active members" },
       { stage: "Advocate", tactic: "Referral quests, creator rewards and an ambassador tier for top contributors", kpi: "Referred joins" }
@@ -299,13 +299,13 @@
       { name: "Proof Week", mech: "Seven days, seven proofs — one demo, metric or milestone shipped publicly every day.", dur: "7 days", target: "+" + fmt(base * 0.4) + " followers" },
       { name: "Lore Drop", mech: "Serialized story chapters; the community votes on what happens next.", dur: "21 days", target: "3× engagement rate" },
       { name: "Creator Circle", mech: "Brief 10–20 aligned creators with an embargoed preview and an exclusive asset pack.", dur: "10 days", target: fmt(base * 8) + " reach" },
-      { name: "Chain Raid", mech: "Coordinated, positive presence in Solana ecosystem conversations.", dur: "Ongoing", target: "Top-3 share of voice" }
+      { name: "Chain Raid", mech: "Coordinated, positive presence in Robinhood Chain ecosystem conversations.", dur: "Ongoing", target: "Top-3 share of voice" }
     ]).slice(0, 3);
     var channels = [
       { ch: "X (Twitter)", pri: "Primary", why: "Where narratives form and spread — your launch stage." },
       { ch: n.discord ? "Discord" : "Telegram", pri: "Primary", why: "Where followers become a community." },
       { ch: "Creators & KOLs", pri: "High", why: "Borrowed trust; brief them on story, not price." },
-      { ch: "Ecosystem partners", pri: "Medium", why: "Co-marketing with projects across Solana." },
+      { ch: "Ecosystem partners", pri: "Medium", why: "Co-marketing with projects across Robinhood Chain." },
       { ch: "Spaces & AMAs", pri: "Medium", why: "Founder voice builds conviction faster than posts." }
     ];
     var kpis = [
@@ -326,7 +326,7 @@
       "Most people get " + w[0] + " wrong. Here's what " + n.name + " does differently 🧵",
       "We're building " + n.name + " in public. Today's update ↓",
       "What would you do with " + w[0] + " that never sleeps?",
-      "Solana is about to get a lot more interesting.",
+      "Robinhood Chain is about to get a lot more interesting.",
       "gm to everyone early to " + tag,
       "Poll: what should " + n.name + " ship first?",
       "The 3 problems " + n.name + " exists to solve:",
@@ -335,7 +335,7 @@
       "Chapter 1 of the " + n.name + " story.",
       "Proof, not promises: here's a live look at what we've built.",
       "If you've been here since day one, this one's for you.",
-      "Why we chose Solana (and why it matters for you).",
+      "Why we chose Robinhood Chain (and why it matters for you).",
       "One week to go. Here's everything you need to know."
     ];
     var calendar = [];
@@ -343,12 +343,12 @@
       calendar.push({ day: d + 1, format: d === 4 || d === 11 ? "Space" : formats[(d + offset) % 7] === "Space" ? "Thread" : formats[(d + offset) % 7], hook: hooks[d], time: pick(r, ["14:00", "16:00", "18:00", "21:00"]) + " UTC" });
     }
     var posts = [
-      n.name + " started with a simple question: why doesn't " + w[0] + " work for normal people?\n\nSo we're fixing it — on Solana, in public, with you.\n\nFollow along. " + tag,
-      "Not financial advice. Just a better " + w[4] + ".\n\n" + (n.oneLiner || "Something new is coming to Solana.") + "\n\nEarly pilots get the best seat. 👇",
+      n.name + " started with a simple question: why doesn't " + w[0] + " work for normal people?\n\nSo we're fixing it — on Robinhood Chain, in public, with you.\n\nFollow along. " + tag,
+      "Not financial advice. Just a better " + w[4] + ".\n\n" + (n.oneLiner || "Something new is coming to Robinhood Chain.") + "\n\nEarly pilots get the best seat. 👇",
       "3 things you'll never see from " + n.name + ":\n\n× Empty promises\n× Hidden roadmaps\n× Ghosted communities\n\n3 things you will:\n✓ Weekly proof\n✓ Open decisions\n✓ Holders first"
     ];
     var thread = [
-      "1/ " + n.name + " in one sentence: " + (n.oneLiner || n.concept.split(".")[0] || "the " + n.C.noun + " Solana has been waiting for") + ".\n\nHere's the full story 🧵",
+      "1/ " + n.name + " in one sentence: " + (n.oneLiner || n.concept.split(".")[0] || "the " + n.C.noun + " Robinhood Chain has been waiting for") + ".\n\nHere's the full story 🧵",
       "2/ The problem: " + audienceLabel(n) + " are stuck with tools that weren't built for them.",
       "3/ Our answer: " + n.name + " " + pick(r, n.C.benefit) + ". No jargon. No gatekeeping.",
       "4/ What's next: " + (n.roadmap ? n.roadmap.split(/\n|\. /)[0] : "a public roadmap, shipped in chapters") + ".",
@@ -379,9 +379,9 @@
       { name: "Launch day", window: "T-0", items: ["T-60m · Final teaser and pinned post", "T-0 · Official announcement + creator wave", "T+30m · Community celebration and holder shout-outs", "T+2h · Live AMA and reply sprint", "T+6h · Recap thread with early milestones"] },
       { name: "Post-launch", window: "T+1 → T+30", items: ["Daily recap and proof posts for 7 days", "Weekly community call and roadmap update", "Second creator wave with new angle", "Ecosystem partnership announcements", "Retro: double down on what worked"] }
     ];
-    var announcement = "It's here. 🛫\n\n" + n.name + " (" + tag + ") is live on Solana.\n\n" + (n.oneLiner || pick(r, n.C.benefit).replace(/^\w/, function (c) { return c.toUpperCase(); }) + ".") + "\n\nThank you to every early pilot who believed before there was anything to see. This is day one.\n\n→ " + (n.website || "link in bio");
+    var announcement = "It's here. 🛫\n\n" + n.name + " (" + tag + ") is live on Robinhood Chain.\n\n" + (n.oneLiner || pick(r, n.C.benefit).replace(/^\w/, function (c) { return c.toUpperCase(); }) + ".") + "\n\nThank you to every early pilot who believed before there was anything to see. This is day one.\n\n→ " + (n.website || "link in bio");
     var brief = {
-      summary: n.name + " is a " + n.C.noun + " launching on Solana. " + (n.concept ? n.concept.split(".").slice(0, 2).join(".") + "." : ""),
+      summary: n.name + " is a " + n.C.noun + " launching on Robinhood Chain. " + (n.concept ? n.concept.split(".").slice(0, 2).join(".") + "." : ""),
       audience: audienceLabel(n),
       messages: ["What it is, in your own words", "Why it matters to your audience", "What's genuinely new about it"],
       avoid: ["Price predictions or financial promises", "Copy-pasted scripts", "Undisclosed paid promotion — always disclose"],
@@ -405,14 +405,14 @@
       ? { score: Math.round(55 + r() * 30), note: "Modeled from your brief and category baseline for @" + n.handle + ". Connect live X data for real-time sentiment." }
       : { score: null, note: "Add your X account to enable sentiment tracking." };
     var opportunities = shuffle(r, [
-      "Be first to own \"" + trends[0].name + "\" on Solana before larger players arrive.",
+      "Be first to own \"" + trends[0].name + "\" on Robinhood Chain before larger players arrive.",
       "Ecosystem attention is high — partner with 2–3 complementary projects for a joint campaign.",
       "Competitors under-invest in education; a weekly explainer series is an open lane.",
       "Creators in the " + n.C.label + " niche are looking for fresh stories — offer an exclusive preview.",
       "Your audience responds to proof; a public metrics page differentiates immediately."
     ]).slice(0, 3);
     var watch = [
-      "Mentions of " + n.C.label + " tokens on Solana",
+      "Mentions of " + n.C.label + " tokens on Robinhood Chain",
       "Launch announcements from the competitor archetypes above",
       "Sentiment shifts around " + trends[0].name.toLowerCase(),
       "Creator conversations mentioning $" + n.ticker

@@ -244,10 +244,10 @@
 
   /* ---------- Contract address (set in assets/js/config.js) ---------- */
   var CA = ((window.PP_CONFIG && window.PP_CONFIG.ca) || "").trim();
-  var CA_OK = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(CA); // Solana base58 address
+  var CA_OK = /^0x[0-9a-fA-F]{40}$/.test(CA); // EVM address (Robinhood Chain)
   document.querySelectorAll("[data-ca]").forEach(function (btn) {
     if (!CA_OK) return;
-    var short = CA.slice(0, 4) + "\u2026" + CA.slice(-4);
+    var short = CA.slice(0, 6) + "\u2026" + CA.slice(-4);
     btn.disabled = false;
     btn.classList.add("ca--live");
     btn.title = CA + " (click to copy)";
