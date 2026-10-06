@@ -242,6 +242,29 @@
     if (reduce) draw(); else requestAnimationFrame(loop);
   }
 
+  /* ---------- Launch film ---------- */
+  var film = document.getElementById("filmVideo"), filmPlay = document.getElementById("filmPlay");
+  if (film && filmPlay) {
+    var startFilm = function () {
+      filmPlay.hidden = true;
+      film.controls = true;
+      var pr = film.play();
+      if (pr && pr.catch) pr.catch(function () { filmPlay.hidden = false; film.controls = false; });
+    };
+    filmPlay.addEventListener("click", startFilm);
+    film.addEventListener("play", function () { filmPlay.hidden = true; });
+    film.addEventListener("ended", function () { filmPlay.hidden = false; film.controls = false; film.load(); });
+    document.querySelectorAll("[data-play-film]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.getElementById("film").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+        setTimeout(startFilm, reduce ? 0 : 650);
+      });
+    });
+    // Pause when scrolled away
+    new IntersectionObserver(function (en) { if (!en[0].isIntersecting && !film.paused) film.pause(); }, { threshold: 0.2 }).observe(film);
+  }
+
   /* ---------- Pricing (Monthly / Annual) ---------- */
   if (window.TPPricing) {
     window.TPPricing.render(document, "monthly");
