@@ -70,6 +70,7 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-xlogo" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   </svg>
 
@@ -79,7 +80,7 @@
       <nav class="nav__links" aria-label="Brand sections">
         <a href="#logo">Logo</a><a href="#colour">Colour</a><a href="#type">Type</a><a href="#material">Material</a>
       </nav>
-      <div class="nav__cta"><a href="https://x.com/pilotpad" class="xlink" target="_blank" rel="noopener" aria-label="PilotPad on X" title="Follow @pilotpad on X"><svg class="icon"><use href="#i-xlogo"/></svg></a><a href="app.html" class="btn btn--primary btn--sm">Launch app</a></div>
+      <div class="nav__cta"><div class="nav__social"><button type="button" class="ca" data-ca aria-label="Contract address coming soon" disabled><span class="ca__k mono">CA</span><span class="ca__v mono" data-ca-value>Coming soon</span><svg class="icon ca__copy" aria-hidden="true"><use href="#i-copy"/></svg></button><a href="https://x.com/pilotpad" class="xlink" target="_blank" rel="noopener" aria-label="PilotPad on X" title="Follow @pilotpad on X"><svg class="icon"><use href="#i-xlogo"/></svg></a></div><a href="app.html" class="btn btn--primary btn--sm">Launch app</a></div>
     </div>
   </header>
 
@@ -173,6 +174,7 @@
 
   <style>@keyframes breathe { 50% { transform: scale(1.06); } }</style>
   <script src="assets/js/liquid-glass.js"></script>
+  <script src="assets/js/config.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>

@@ -25,6 +25,10 @@ A founder briefs their project (concept, name, website, X, community links, visu
 
 Out of the box, everything runs on the built-in engine (`assets/js/engine.js`), which generates outputs from the brief. To get live reasoning in chat and one-click **Regenerate with Claude** on every agent, paste a Claude API key in **Settings**. The key is stored only in the browser and calls go directly to the Anthropic API. For production, proxy those calls through your own backend (see `assets/js/ai.js`).
 
+## Contract address
+
+The CA pill next to the X link in the top nav reads from `assets/js/config.js`. Set `ca` to the token's Solana address and push: the pill switches from "Coming soon" to the shortened address, and clicking it copies the full address. Invalid addresses are ignored.
+
 ## Free trial & pricing
 
 Visitors can try the full product with no sign-up and no card: the 14-day trial starts when they finish their first brief and is tracked in their browser. After it ends, a paywall asks them to choose a plan (preview it any time with `app.html?preview=expired`).

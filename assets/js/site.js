@@ -242,6 +242,33 @@
     if (reduce) draw(); else requestAnimationFrame(loop);
   }
 
+  /* ---------- Contract address (set in assets/js/config.js) ---------- */
+  var CA = ((window.PP_CONFIG && window.PP_CONFIG.ca) || "").trim();
+  var CA_OK = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(CA); // Solana base58 address
+  document.querySelectorAll("[data-ca]").forEach(function (btn) {
+    if (!CA_OK) return;
+    var short = CA.slice(0, 4) + "\u2026" + CA.slice(-4);
+    btn.disabled = false;
+    btn.classList.add("ca--live");
+    btn.title = CA + " (click to copy)";
+    btn.setAttribute("aria-label", "Copy contract address " + CA);
+    btn.querySelector("[data-ca-value]").textContent = short;
+    btn.addEventListener("click", function () {
+      var done = function () {
+        btn.classList.add("ca--copied");
+        btn.querySelector("[data-ca-value]").textContent = "Copied";
+        setTimeout(function () { btn.classList.remove("ca--copied"); btn.querySelector("[data-ca-value]").textContent = short; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(CA).then(done, fallback);
+      else fallback();
+      function fallback() {
+        var ta = document.createElement("textarea"); ta.value = CA; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { /* ignore */ }
+        ta.remove();
+      }
+    });
+  });
+
   /* ---------- Launch film ---------- */
   var film = document.getElementById("filmVideo"), filmPlay = document.getElementById("filmPlay");
   if (film && filmPlay) {
