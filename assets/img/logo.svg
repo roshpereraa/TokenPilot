@@ -14,5 +14,5 @@
   <g transform="rotate(-30 24 24)"><ellipse cx="24" cy="24" rx="22" ry="7.5" stroke="url(#tp-orbit)" stroke-width="2.4" mask="url(#tp-behind)"/></g>
   <path d="M24 4Q26 22 40 24Q26 26 24 44Q22 26 8 24Q22 22 24 4Z" fill="url(#tp-star)"/>
   <g transform="rotate(-30 24 24)"><path d="M2 24A22 7.5 0 0 0 46 24" stroke="url(#tp-orbit)" stroke-width="2.4" stroke-linecap="round"/></g>
-  <text x="60" y="33" font-family="'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="-1.1" fill="#F4F3FF">Token<tspan fill="#B8AEFF">Pilot</tspan></text>
+  <text x="60" y="33" font-family="'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="-1.1" fill="#F4F3FF">Pilot<tspan fill="#B8AEFF">Pad</tspan></text>
 </svg>

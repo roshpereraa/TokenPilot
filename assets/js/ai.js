@@ -42,7 +42,7 @@
       goals: n.goals, brandVibe: n.vibe, launchDate: n.launchDate
     };
     return [
-      "You are part of TokenPilot, an AI launch team for a token launching on Solana. You are " + (AGENTS[agent] || AGENTS.strategy),
+      "You are part of PilotPad, an AI launch team for a token launching on Solana. You are " + (AGENTS[agent] || AGENTS.strategy),
       "Your teammates: Strategy, Brand, Growth, Social, Launch and Market Intelligence agents. All of you share the project memory below.",
       "",
       "PROJECT BRIEF:",

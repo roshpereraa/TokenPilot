@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TokenPilot engine — analysis + agent deliverables from a project brief.
+   PilotPad engine — analysis + agent deliverables from a project brief.
 
    Runs fully in the browser. Every output is derived from the founder's
    brief, the project's category and launch timing. When a Claude API key is

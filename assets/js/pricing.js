@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TokenPilot pricing — single source of truth for the site and the app.
+   PilotPad pricing — single source of truth for the site and the app.
 
    One plan, priced by subscription year. Paying annually takes 30% off
    that year's twelve monthly payments.
@@ -19,7 +19,7 @@
     ],
     // Where "Subscribe" buttons send people. Replace with your Stripe
     // Checkout / payment link when billing is live.
-    checkoutUrl: "mailto:hello@tokenpilot.ai?subject=TokenPilot%20subscription"
+    checkoutUrl: "mailto:hello@pilotpad.ai?subject=PilotPad%20subscription"
   };
 
   function round2(n) { return Math.round(n * 100) / 100; }

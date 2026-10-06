@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TokenPilot app — intake → deep analysis → command center
+   PilotPad app — intake → deep analysis → command center
    ========================================================================== */
 (function () {
   "use strict";
@@ -539,7 +539,7 @@
     var pct = t.started ? Math.round((1 - t.daysLeft / cfg.trialDays) * 100) : 0;
     return '<section class="page-head"><h2>Plan &amp; billing</h2><p class="muted">No account needed during the trial. Subscribe any time to keep going after it ends.</p></section><div class="grid">' +
       card("Free trial", '<p>' + status + '</p><div class="trialbar"><i style="width:' + pct + '%"></i></div>', { cls: "span-2" }) +
-      card("TokenPilot plan", planCards(), { cls: "span-2" }) +
+      card("PilotPad plan", planCards(), { cls: "span-2" }) +
       "</div>";
   };
 
@@ -547,7 +547,7 @@
     var blob = new Blob([JSON.stringify({ brief: state.project, analysis: out.analysis, brand: out.brand, growth: out.growth, social: out.social, launch: out.launch, intel: out.intel, strategy: out.strategy, aiDocs: state.aiDocs, log: state.log }, null, 2)], { type: "application/json" });
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = (out.n.name || "project").toLowerCase().replace(/\W+/g, "-") + "-tokenpilot.json";
+    a.download = (out.n.name || "project").toLowerCase().replace(/\W+/g, "-") + "-pilotpad.json";
     a.click();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   }
@@ -577,7 +577,7 @@
   PAGES.settings = function () {
     var cfg = AI.load();
     return '<section class="page-head"><h2>Settings</h2></section><div class="grid">' +
-      card("Connect Claude", '<p class="muted small">TokenPilot runs fully on its built-in engine. Connect a Claude API key to give every agent live reasoning in chat and one-click regeneration. Your key is stored only in this browser — for production, route requests through your own backend.</p>' +
+      card("Connect Claude", '<p class="muted small">PilotPad runs fully on its built-in engine. Connect a Claude API key to give every agent live reasoning in chat and one-click regeneration. Your key is stored only in this browser — for production, route requests through your own backend.</p>' +
         '<form id="aiForm" class="ai-form"><label class="input"><span>API key</span><input name="key" type="password" placeholder="sk-ant-…" value="' + esc(cfg.key || "") + '" class="mono" autocomplete="off" /></label>' +
         '<label class="input"><span>Model</span><select name="model" class="mono">' + AI.MODELS.map(function (m) { return '<option value="' + m.id + '"' + (cfg.model === m.id ? " selected" : "") + ">" + esc(m.label) + "</option>"; }).join("") + "</select></label>" +
         '<div class="row-btns"><button class="btn btn--primary btn--sm">Save</button>' + (cfg.key ? '<button type="button" class="btn btn--ghost btn--sm" id="aiDisconnect">Disconnect</button>' : "") + "</div></form>", { cls: "span-2" }) +
