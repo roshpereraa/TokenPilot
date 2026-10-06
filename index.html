@@ -48,8 +48,7 @@
         <a href="brand.html">Brand</a>
       </nav>
       <div class="nav__cta">
-        <a href="app.html" class="btn btn--ghost btn--sm nav__signin">Sign in</a>
-        <a href="app.html" class="btn btn--primary btn--sm">Start your launch</a>
+                <a href="app.html" class="btn btn--primary btn--sm">Start free trial</a>
         <button class="nav__burger" aria-label="Open menu" aria-expanded="false" id="burger"><span></span><span></span></button>
       </div>
     </div>
@@ -59,7 +58,7 @@
       <a href="#command">Command center</a>
       <a href="#pricing">Pricing</a>
       <a href="brand.html">Brand</a>
-      <a href="app.html" class="btn btn--primary">Start your launch</a>
+      <a href="app.html" class="btn btn--primary">Start free trial</a>
     </div>
   </header>
 
@@ -81,13 +80,13 @@
           idea to launch to growth.
         </p>
         <div class="hero__ctas" data-reveal style="--d:3">
-          <a href="app.html" class="btn btn--primary btn--lg lg" data-lg-radius="999">Start your launch <svg><use href="#i-arrow"/></svg></a>
+          <a href="app.html" class="btn btn--primary btn--lg lg" data-lg-radius="999">Start free trial <svg><use href="#i-arrow"/></svg></a>
           <a href="#how" class="btn btn--glass btn--lg lg" data-lg-radius="999">See how it works</a>
         </div>
         <div class="hero__meta mono" data-reveal style="--d:4">
           <span><i class="live-dot"></i> 6 agents online</span>
           <span class="sep"></span>
-          <span>Idea → Narrative → Community → Launch → Growth</span>
+          <span><span data-trial-days>14</span>-day free trial · No sign-up · No card</span>
         </div>
       </div>
 
@@ -478,33 +477,70 @@
       <div class="container">
         <div class="section__head" data-reveal>
           <span class="eyebrow">Pricing</span>
-          <h2>Cheaper than one agency call.</h2>
-          <p>Start free with a full project analysis. Upgrade when your team goes live.</p>
+          <h2>Try it free for <span class="grad"><span data-trial-days>14</span> days.</span></h2>
+          <p>No sign-up. No card. Brief your token and your whole AI launch team is working in minutes. Keep it after the trial with one simple plan.</p>
         </div>
+
+        <div class="billing" data-reveal>
+          <div class="billing__toggle glass" role="group" aria-label="Billing cycle">
+            <button type="button" data-cycle-btn="monthly" class="on" aria-pressed="true">Monthly</button>
+            <button type="button" data-cycle-btn="annual" aria-pressed="false">Annual <em>−<span data-discount>30%</span></em></button>
+          </div>
+          <p class="billing__note">Your price steps up on each subscription anniversary. Pay a year upfront and save <span data-discount>30%</span> every year.</p>
+        </div>
+
         <div class="pricing">
-          <article class="plan glass" data-reveal>
-            <h3>Analysis</h3>
-            <div class="plan__price"><b>Free</b></div>
-            <p>See what your AI team sees.</p>
-            <ul><li><svg class="icon"><use href="#i-check"/></svg>Full project deep analysis</li><li><svg class="icon"><use href="#i-check"/></svg>Positioning &amp; narrative snapshot</li><li><svg class="icon"><use href="#i-check"/></svg>Launch readiness score</li></ul>
-            <a href="app.html" class="btn btn--glass">Analyze my token</a>
+          <article class="plan plan--hot glass--tint glass" data-reveal style="--d:0">
+            <span class="plan__badge mono">Starts here</span>
+            <span class="plan__year mono">Year 1</span>
+            <h3>Launch pricing</h3>
+            <div class="plan__price" data-cycle="monthly"><b data-price="y0.monthly">$99</b><span>/ month</span></div>
+            <p class="plan__bill" data-cycle="monthly">Billed monthly · <span data-price="y0.monthlyYear">$1,188</span> a year</p>
+            <div class="plan__price" data-cycle="annual" hidden><b data-price="y0.annualPerMonth">$69.30</b><span>/ month</span></div>
+            <p class="plan__bill" data-cycle="annual" hidden>Billed <strong data-price="y0.annual">$831.60</strong> yearly · <s data-price="y0.monthlyYear">$1,188</s> <em class="plan__save">Save <span data-price="y0.saving">$356.40</span></em></p>
           </article>
-          <article class="plan plan--hot glass glass--tint" data-reveal style="--d:1">
-            <span class="plan__badge mono">Most popular</span>
-            <h3>Launch</h3>
-            <div class="plan__price"><b>$249</b><span>/ month</span></div>
-            <p>All six agents for one token.</p>
-            <ul><li><svg class="icon"><use href="#i-check"/></svg>Everything in Analysis</li><li><svg class="icon"><use href="#i-check"/></svg>Live command center &amp; chat</li><li><svg class="icon"><use href="#i-check"/></svg>Unlimited campaigns &amp; drafts</li><li><svg class="icon"><use href="#i-check"/></svg>Launch simulator &amp; runbook</li></ul>
-            <a href="app.html" class="btn btn--primary">Start your launch</a>
+          <article class="plan glass" data-reveal style="--d:1">
+            
+            <span class="plan__year mono">Year 2</span>
+            <h3>Growth</h3>
+            <div class="plan__price" data-cycle="monthly"><b data-price="y1.monthly">$120</b><span>/ month</span></div>
+            <p class="plan__bill" data-cycle="monthly">Billed monthly · <span data-price="y1.monthlyYear">$1,440</span> a year</p>
+            <div class="plan__price" data-cycle="annual" hidden><b data-price="y1.annualPerMonth">$84</b><span>/ month</span></div>
+            <p class="plan__bill" data-cycle="annual" hidden>Billed <strong data-price="y1.annual">$1,008</strong> yearly · <s data-price="y1.monthlyYear">$1,440</s> <em class="plan__save">Save <span data-price="y1.saving">$432</span></em></p>
           </article>
           <article class="plan glass" data-reveal style="--d:2">
-            <h3>Studio</h3>
-            <div class="plan__price"><b>Custom</b></div>
-            <p>For launchpads and multi-token teams.</p>
-            <ul><li><svg class="icon"><use href="#i-check"/></svg>Multiple tokens &amp; workspaces</li><li><svg class="icon"><use href="#i-check"/></svg>Team seats &amp; approvals</li><li><svg class="icon"><use href="#i-check"/></svg>Custom agents &amp; integrations</li></ul>
-            <a href="mailto:hello@tokenpilot.ai" class="btn btn--glass">Talk to us</a>
+            
+            <span class="plan__year mono">Year 3 onward</span>
+            <h3>Scale</h3>
+            <div class="plan__price" data-cycle="monthly"><b data-price="y2.monthly">$199</b><span>/ month</span></div>
+            <p class="plan__bill" data-cycle="monthly">Billed monthly · <span data-price="y2.monthlyYear">$2,388</span> a year</p>
+            <div class="plan__price" data-cycle="annual" hidden><b data-price="y2.annualPerMonth">$139.30</b><span>/ month</span></div>
+            <p class="plan__bill" data-cycle="annual" hidden>Billed <strong data-price="y2.annual">$1,671.60</strong> yearly · <s data-price="y2.monthlyYear">$2,388</s> <em class="plan__save">Save <span data-price="y2.saving">$716.40</span></em></p>
           </article>
         </div>
+
+        <div class="plan-all glass" data-reveal>
+          <div class="plan-all__inc">
+            <h3>Every year includes everything</h3>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>All six agents for your token</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Deep analysis &amp; readiness score</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Live command center &amp; team chat</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Unlimited campaigns &amp; drafts</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Launch simulator &amp; runbook</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Performance learning loop</li>
+            </ul>
+          </div>
+          <div class="plan-all__sum">
+            <span class="mono">First three years</span>
+            <div class="plan-all__row"><span>Paying monthly</span><b data-price="total.monthly">$5,016</b></div>
+            <div class="plan-all__row"><span>Paying annually</span><b data-price="total.annual">$3,511.20</b></div>
+            <div class="plan-all__row plan-all__row--save"><span>You save</span><b data-price="total.saving">$1,504.80</b></div>
+            <a href="app.html" class="btn btn--primary">Start <span data-trial-days>14</span>-day free trial</a>
+            <small>No sign-up or card needed to start.</small>
+          </div>
+        </div>
+        <p class="pricing__foot">Prices in USD. Launchpad or multi-token team? <a href="mailto:hello@tokenpilot.ai">Talk to us</a>.</p>
       </div>
     </section>
 
@@ -519,6 +555,14 @@
           <details class="glass glass--sm" open>
             <summary>What do I need to get started?</summary>
             <p>Just your token concept and name. Website, X account, community links, visuals, roadmap, audience and goals all make the analysis sharper — but TokenPilot will tell you what's missing and help you build it.</p>
+          </details>
+          <details class="glass glass--sm">
+            <summary>How does the free trial work?</summary>
+            <p>Open the app, brief your token and start using every agent straight away. No sign-up and no card. The trial runs for <span data-trial-days>14</span> days from your first brief. After that, choose monthly or annual billing to keep going.</p>
+          </details>
+          <details class="glass glass--sm">
+            <summary>What does it cost after the trial?</summary>
+            <p><span data-price="y0.monthly">$99</span>/month in your first year, <span data-price="y1.monthly">$120</span>/month in your second and <span data-price="y2.monthly">$199</span>/month from your third year on. Pay annually and save <span data-discount>30%</span>: <span data-price="y0.annual">$831.60</span>, <span data-price="y1.annual">$1,008</span> and <span data-price="y2.annual">$1,671.60</span> a year.</p>
           </details>
           <details class="glass glass--sm">
             <summary>Does TokenPilot deploy or trade my token?</summary>
@@ -547,8 +591,8 @@
           <div class="cta__orb" aria-hidden="true"></div>
           <img src="assets/img/logo-mark.svg" alt="" class="cta__mark" width="64" height="64" />
           <h2>Take your token from<br /><span class="grad">idea to orbit.</span></h2>
-          <p>Brief your project in five minutes. Meet your launch team in ten.</p>
-          <a href="app.html" class="btn btn--primary btn--lg lg" data-lg-radius="999">Start your launch <svg><use href="#i-arrow"/></svg></a>
+          <p>Brief your project in five minutes. Meet your launch team in ten. Free for <span data-trial-days>14</span> days, no sign-up.</p>
+          <a href="app.html" class="btn btn--primary btn--lg lg" data-lg-radius="999">Start free trial <svg><use href="#i-arrow"/></svg></a>
         </div>
       </div>
     </section>
@@ -572,6 +616,7 @@
   </footer>
 
   <script src="assets/js/liquid-glass.js"></script>
+  <script src="assets/js/pricing.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>

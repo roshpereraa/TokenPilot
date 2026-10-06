@@ -4,7 +4,14 @@
 (function () {
   "use strict";
 
-  var E = window.TPEngine, AI = window.TPAI;
+  var E = window.TPEngine, AI = window.TPAI, PR = window.TPPricing;
+  // ?preview=expired shows the end-of-trial screen without waiting 14 days.
+  var PREVIEW_EXPIRED = /[?&]preview=expired\b/.test(location.search);
+  function trial() {
+    var t = PR.trialStatus();
+    if (PREVIEW_EXPIRED) { t.started = true; t.expired = true; t.daysLeft = 0; }
+    return t;
+  }
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -155,6 +162,7 @@
     if (isNew) { state.salts = {}; state.checks = {}; state.aiDocs = {}; state.chat = []; state.log = []; }
     state.page = "overview";
     persist();
+    PR.startTrial();
     runAnalysis();
   });
   $("#prevStep").addEventListener("click", function () { setStep(step - 1); });
@@ -238,6 +246,7 @@
     .concat([
       { id: "simulator", label: "Launch simulator", icon: "sim" },
       { id: "pulse", label: "Performance", icon: "pulse" },
+      { id: "plan", label: "Plan & billing", icon: "card" },
       { id: "settings", label: "Settings", icon: "gear" }
     ]);
 
@@ -247,6 +256,7 @@
     renderChrome();
     go(state.page || "overview");
     renderChat();
+    paywall();
   }
 
   function renderChrome() {
@@ -264,11 +274,14 @@
     });
     $("#sideNav").innerHTML = html;
 
-    var days = E.daysToLaunch(n);
-    $("#countdown").innerHTML = days === null ? '<span class="tag">No launch date</span>'
+    var days = E.daysToLaunch(n), tr = trial();
+    var trialTag = !tr.started ? "" : tr.expired
+      ? '<a href="#plan" data-page="plan" class="tag tag--ember trial-tag">Trial ended · Choose a plan</a>'
+      : '<a href="#plan" data-page="plan" class="tag ' + (tr.daysLeft <= 3 ? "tag--ember" : "tag--signal") + ' trial-tag">Free trial · ' + tr.daysLeft + (tr.daysLeft === 1 ? " day" : " days") + " left</a>";
+    $("#countdown").innerHTML = trialTag + (days === null ? '<span class="tag">No launch date</span>'
       : days > 0 ? '<span class="tag tag--violet">T-' + days + "d · " + esc(out.strategy.phase) + "</span>"
       : days === 0 ? '<span class="tag tag--signal"><i class="live-dot"></i> Launch day</span>'
-      : '<span class="tag tag--signal">T+' + Math.abs(days) + "d · Post-launch</span>";
+      : '<span class="tag tag--signal">T+' + Math.abs(days) + "d · Post-launch</span>");
 
     var on = AI.connected();
     $("#aiStatus").innerHTML = on
@@ -502,6 +515,65 @@
       "</div>";
   };
 
+  function planCards() {
+    var cfg = PR.config;
+    return '<div class="billing-toggle glass glass--sm" role="group" aria-label="Billing cycle">' +
+      '<button type="button" data-cycle-btn="monthly" class="on" aria-pressed="true">Monthly</button>' +
+      '<button type="button" data-cycle-btn="annual" aria-pressed="false">Annual <em>−<span data-discount></span></em></button></div>' +
+      '<div class="yplans">' + PR.all().map(function (y, i) {
+        return '<div class="yplan' + (i === 0 ? " yplan--now" : "") + '"><span class="mono">' + esc(y.label) + "</span><b>" + esc(y.note) + "</b>" +
+          '<div class="yplan__price" data-cycle="monthly"><strong data-price="y' + i + '.monthly"></strong><span>/ month</span></div>' +
+          '<p data-cycle="monthly">Billed monthly · <span data-price="y' + i + '.monthlyYear"></span> a year</p>' +
+          '<div class="yplan__price" data-cycle="annual" hidden><strong data-price="y' + i + '.annualPerMonth"></strong><span>/ month</span></div>' +
+          '<p data-cycle="annual" hidden>Billed <span data-price="y' + i + '.annual"></span> yearly · <em class="ok">save <span data-price="y' + i + '.saving"></span></em></p></div>';
+      }).join("") + "</div>" +
+      '<div class="row-btns"><a class="btn btn--primary" data-checkout target="_blank" rel="noopener">Subscribe</a></div>' +
+      '<p class="muted small">Prices in USD. Your price steps up on each subscription anniversary; paying annually saves ' + Math.round(cfg.annualDiscount * 100) + "% every year.</p>";
+  }
+
+  PAGES.plan = function () {
+    var t = trial(), cfg = PR.config;
+    var status = !t.started ? "Your " + cfg.trialDays + "-day free trial starts with your first brief."
+      : t.expired ? "Your free trial has ended. Choose a plan to keep your launch team working."
+      : "You have <b>" + t.daysLeft + (t.daysLeft === 1 ? " day" : " days") + "</b> left in your free trial (ends " + esc(new Date(t.endsAt).toLocaleDateString(undefined, { month: "short", day: "numeric" })) + "). Everything is unlocked until then.";
+    var pct = t.started ? Math.round((1 - t.daysLeft / cfg.trialDays) * 100) : 0;
+    return '<section class="page-head"><h2>Plan &amp; billing</h2><p class="muted">No account needed during the trial. Subscribe any time to keep going after it ends.</p></section><div class="grid">' +
+      card("Free trial", '<p>' + status + '</p><div class="trialbar"><i style="width:' + pct + '%"></i></div>', { cls: "span-2" }) +
+      card("TokenPilot plan", planCards(), { cls: "span-2" }) +
+      "</div>";
+  };
+
+  function exportProject() {
+    var blob = new Blob([JSON.stringify({ brief: state.project, analysis: out.analysis, brand: out.brand, growth: out.growth, social: out.social, launch: out.launch, intel: out.intel, strategy: out.strategy, aiDocs: state.aiDocs, log: state.log }, null, 2)], { type: "application/json" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = (out.n.name || "project").toLowerCase().replace(/\W+/g, "-") + "-tokenpilot.json";
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+
+  /* End-of-trial screen: blocks the command center until the visitor subscribes. */
+  function paywall() {
+    var old = $("#paywall"); if (old) old.remove();
+    if (!trial().expired) { document.body.classList.remove("paywalled"); return; }
+    document.body.classList.add("paywalled");
+    var el = document.createElement("div");
+    el.id = "paywall";
+    el.className = "paywall";
+    el.setAttribute("role", "dialog");
+    el.setAttribute("aria-modal", "true");
+    el.setAttribute("aria-labelledby", "pwTitle");
+    el.innerHTML = '<div class="paywall__card glass"><img src="assets/img/logo-mark.svg" alt="" width="48" height="48" />' +
+      '<h2 id="pwTitle">Your free trial has ended</h2>' +
+      '<p class="muted">Your launch team, analysis and everything they made for ' + esc(out.n.name) + ' are saved in this browser. Choose a plan to pick up where you left off.</p>' +
+      planCards() +
+      '<button type="button" class="btn btn--ghost btn--sm" id="pwExport">Export my project (JSON)</button></div>';
+    document.body.appendChild(el);
+    PR.bindToggle(el, "monthly");
+    $("#pwExport").addEventListener("click", exportProject);
+    var first = el.querySelector("[data-cycle-btn]"); if (first) first.focus();
+  }
+
   PAGES.settings = function () {
     var cfg = AI.load();
     return '<section class="page-head"><h2>Settings</h2></section><div class="grid">' +
@@ -517,6 +589,7 @@
   /* ---------- Page bindings ---------- */
   function bindPage(page) {
     var c = $("#content");
+    if (page === "plan") PR.bindToggle(c, "monthly");
     $$("[data-check]", c).forEach(function (cb) {
       cb.addEventListener("change", function () { state.checks[cb.dataset.check] = cb.checked; persist(); });
     });
@@ -579,14 +652,7 @@
       });
       var dc = $("#aiDisconnect");
       if (dc) dc.addEventListener("click", function () { AI.save({}); renderChrome(); go("settings"); toast("Disconnected"); });
-      $("#exportBtn").addEventListener("click", function () {
-        var blob = new Blob([JSON.stringify({ brief: state.project, analysis: out.analysis, brand: out.brand, growth: out.growth, social: out.social, launch: out.launch, intel: out.intel, strategy: out.strategy, aiDocs: state.aiDocs, log: state.log }, null, 2)], { type: "application/json" });
-        var a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = (out.n.name || "project").toLowerCase().replace(/\W+/g, "-") + "-tokenpilot.json";
-        a.click();
-        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-      });
+      $("#exportBtn").addEventListener("click", exportProject);
       $("#resetBtn").addEventListener("click", function () {
         if (!confirm("Reset this project? This can't be undone.")) return;
         try { localStorage.removeItem(STORE); } catch (e) { /* ignore */ }

@@ -511,3 +511,44 @@ body.chat-open .view--command { grid-template-columns: 264px 1fr 400px; }
   .agent-hero h2 { font-size: 23px; }
   .topbar .btn { font-size: 13px; }
 }
+
+/* ---------- Trial & billing ---------- */
+.topbar__trial { margin-left: auto; }
+.mainbar__right .countdown { display: flex; gap: 8px; }
+.trial-tag { height: 32px; padding: 0 12px; cursor: pointer; }
+.trialbar { height: 6px; border-radius: 6px; background: rgba(255, 255, 255, .07); overflow: hidden; }
+.trialbar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--indigo), var(--signal)); }
+.billing-toggle { --glass-r: 999px; display: inline-flex; gap: 4px; padding: 5px; justify-self: start; }
+.billing-toggle button { height: 36px; padding: 0 16px; border-radius: 999px; font-size: 14px; font-weight: 550; color: var(--text-2); display: inline-flex; align-items: center; gap: 8px; }
+.billing-toggle button.on { color: #fff; background: linear-gradient(180deg, rgba(139, 123, 255, .5), rgba(110, 91, 255, .3)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.billing-toggle em { font-style: normal; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 999px; color: #0b0b14; background: var(--signal); }
+.yplans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.yplan { padding: 18px; border-radius: 16px; background: rgba(255, 255, 255, .025); border: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
+.yplan--now { border-color: rgba(139, 123, 255, .5); background: rgba(110, 91, 255, .1); }
+.yplan > .mono { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--lavender); }
+.yplan > b { color: var(--text); font-weight: 600; }
+.yplan__price { display: flex; align-items: baseline; gap: 6px; margin-top: 4px; }
+.yplan__price strong { font-family: var(--font-display); font-size: 32px; font-weight: 600; letter-spacing: -.03em; color: var(--text); }
+.yplan__price span { color: var(--text-3); font-size: 13px; }
+.yplan p { font-size: 12.5px; color: var(--text-3); }
+.yplan em { font-style: normal; font-weight: 600; }
+[data-cycle][hidden] { display: none !important; }
+body.paywalled { overflow: hidden; }
+.paywall { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 20px; overflow-y: auto;
+  background: rgba(5, 5, 11, .72); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); animation: rise .5s var(--ease-out); }
+.paywall__card { width: 100%; max-width: 760px; padding: 36px; display: grid; gap: 16px; justify-items: center; text-align: center; background: linear-gradient(180deg, rgba(22, 22, 38, .95), rgba(12, 12, 22, .95)); }
+.paywall__card img { filter: drop-shadow(0 0 24px rgba(110, 91, 255, .8)); }
+.paywall__card h2 { font-size: 32px; }
+.paywall__card > p { max-width: 520px; }
+.paywall__card .billing-toggle, .paywall__card .row-btns { justify-self: center; }
+.paywall__card .yplans { width: 100%; text-align: left; }
+@media (max-width: 760px) {
+  .yplans { grid-template-columns: 1fr; }
+  .paywall__card { padding: 24px 18px; }
+  .topbar__trial { display: none; }
+}
+@media (max-width: 640px) {
+  .mainbar__right .countdown { display: flex; }
+  .mainbar__right .countdown .tag:not(.trial-tag) { display: none; }
+  .trial-tag { font-size: 11px; padding: 0 10px; }
+}

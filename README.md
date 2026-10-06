@@ -25,6 +25,18 @@ A founder briefs their project (concept, name, website, X, community links, visu
 
 Out of the box, everything runs on the built-in engine (`assets/js/engine.js`), which generates outputs from the brief. To get live reasoning in chat and one-click **Regenerate with Claude** on every agent, paste a Claude API key in **Settings**. The key is stored only in the browser and calls go directly to the Anthropic API. For production, proxy those calls through your own backend (see `assets/js/ai.js`).
 
+## Free trial & pricing
+
+Visitors can try the full product with no sign-up and no card: the 14-day trial starts when they finish their first brief and is tracked in their browser. After it ends, a paywall asks them to choose a plan (preview it any time with `app.html?preview=expired`).
+
+| | Monthly | Annual (30% off) |
+| --- | --- | --- |
+| Year 1 | $99/mo ($1,188/yr) | $831.60/yr ($69.30/mo) |
+| Year 2 | $120/mo ($1,440/yr) | $1,008/yr ($84/mo) |
+| Year 3 onward | $199/mo ($2,388/yr) | $1,671.60/yr ($139.30/mo) |
+
+All prices, the trial length, the discount and the checkout link live in `assets/js/pricing.js`. Set `checkoutUrl` to your Stripe payment link when billing goes live (it's an email link for now).
+
 ## Brand
 
 - **Mark:** "Polaris". It is a four-point guiding star with a token orbit that passes behind and in front of it (`assets/img/logo-mark.svg`, `logo.svg`).
@@ -43,4 +55,4 @@ python3 -m http.server 8000
 
 Deploy anywhere static: Vercel, Netlify, GitHub Pages, Cloudflare Pages.
 
-> Pricing and sample metrics on the marketing site are placeholders. TokenPilot is not affiliated with the Solana Foundation. Nothing it produces is financial advice.
+> Sample metrics on the marketing site are illustrative. TokenPilot is not affiliated with the Solana Foundation. Nothing it produces is financial advice.

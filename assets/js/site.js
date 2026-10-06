@@ -242,5 +242,12 @@
     if (reduce) draw(); else requestAnimationFrame(loop);
   }
 
+  /* ---------- Pricing (Monthly / Annual) ---------- */
+  if (window.TPPricing) {
+    window.TPPricing.render(document, "monthly");
+    var pricing = document.getElementById("pricing");
+    if (pricing) window.TPPricing.bindToggle(pricing, "monthly");
+  }
+
   onScroll();
 })();
